@@ -5,7 +5,6 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<<link rel="stylesheet" href="/assets/CSS/style.css"/>
 <header>
     <div>
         <h1>RTL2: le blog des nouvelles</h1>
@@ -13,9 +12,9 @@
             <ul>
                 <li><a href="<c:url value="/"/>"Accueil</a></li>
                     <c:if test="${empty sessionScope.utilisateur}">
-                    <li><a href="/connexion">Se connecter</a></li>
-                    <li><a href="/insciption">s'inscrire</a></li>
-                    </c:if>
+                    <li><a href="<c:url value="/connexion"/>">Se connecter</a></li>
+                    <li><a href="<c:url value="/inscription"/>">s'inscrire</a></li>
+                </c:if>
                     <c:if test="${!empty sessionScope.utilisateur}">
                     <li><a href="deconnexion">se déconnecter</a></li>
                     <li><a href="<c:url value="/profil"/>">Profil</a></li>

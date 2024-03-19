@@ -15,32 +15,6 @@ public class Utilisateur implements Identifiable, Serializable {
     private String mot_de_passe;
 
     @Override
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getLogin() {
-        return pseudo;
-    }
-
-    public void setLogin(String pseudo) {
-        this.pseudo = pseudo;
-    }
-
-    public String getPassword() {
-        return mot_de_passe;
-    }
-
-    public void setPassword(String mot_de_passe) {
-        this.mot_de_passe = mot_de_passe;
-    }
-
-    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Utilisateur{");
@@ -54,9 +28,9 @@ public class Utilisateur implements Identifiable, Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.id);
-        hash = 17 * hash + Objects.hashCode(this.pseudo);
-        hash = 17 * hash + Objects.hashCode(this.mot_de_passe);
+        hash = 29 * hash + Objects.hashCode(this.id);
+        hash = 29 * hash + Objects.hashCode(this.pseudo);
+        hash = 29 * hash + Objects.hashCode(this.mot_de_passe);
         return hash;
     }
 
@@ -79,6 +53,34 @@ public class Utilisateur implements Identifiable, Serializable {
             return false;
         }
         return Objects.equals(this.id, other.id);
+    }
+
+
+
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
+
+    public String getMot_de_passe() {
+        return mot_de_passe;
+    }
+
+    public void setMot_de_passe(String mot_de_passe) {
+        this.mot_de_passe = mot_de_passe;
+    }
+
+    @Override
+    public Integer getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 }

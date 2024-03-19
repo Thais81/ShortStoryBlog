@@ -4,6 +4,8 @@
  */
 package forms;
 
+import dao.DAOFactory;
+import dao.UtilisateurDAO;
 import entities.Utilisateur;
 import javax.servlet.http.HttpServletRequest;
 
@@ -24,24 +26,24 @@ public class ConnexionFormChecker extends FormChecker<Utilisateur> {
         Utilisateur obj = new Utilisateur();
 
         // hydrater le bean avec les données du formulaire
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
-        obj.setLogin(login);
-        obj.setPassword(password);
+        String pseudo = request.getParameter("pseudo");
+        String mot_de_passe = request.getParameter("mot_de_passe");
+        obj.setPseudo(pseudo);
+        obj.setMot_de_passe(mot_de_passe);
 
         // Vérifier les données du formulaire
         //Vérifier si les champs sont remplis
-        if (login.trim().length() == 0) {
-            setError("login", "ce champ doit etre rempli.");
+        if (pseudo.trim().length() == 0) {
+            setError("pseudo", "ce champ doit etre rempli.");
         }
-        if (password.length() == 0) {
-            setError("password", "ce champ doit etre rempli.");
+        if (mot_de_passe.length() == 0) {
+            setError("mot_de_passe", "ce champ doit etre rempli.");
         }
         if (errors.isEmpty()) {
-            Utilisateur read = new UtilisateurDAO().read(login);
+            Utilisateur read = DAOFactory.getUtilisateurDAO().read(pseudo);
 
-            if (read == null || !password.equals(read.getPassword())) {
-                setError("login", "Ces informations ne nous permettent pas de vous connecter");
+            if (read == null || !mot_de_passe.equals(read.getMot_de_passe())) {
+                setError("pseudo", "Ces informations ne nous permettent pas de vous connecter");
             }
             if (read != null) {
                 obj.setId(read.getId());

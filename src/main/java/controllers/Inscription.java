@@ -4,6 +4,7 @@
  */
 package controllers;
 
+import entities.Utilisateur;
 import forms.InscriptionFormChecker;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -23,10 +24,10 @@ public class Inscription extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (req.getSession().getAttribute("user") == null) {
+        if (req.getSession().getAttribute("Utilisateur") == null) {
             req.getRequestDispatcher("/WEB-INF/inscription.jsp").forward(req, resp);
         } else {
-            resp.sendRedirect("/accueil/");
+            resp.sendRedirect("/projetJEE/");
         }
     }
 
@@ -45,8 +46,8 @@ public class Inscription extends HttpServlet {
             // Si des erreurs sont présentes, afficher à nouveau le formulaire avec les erreurs
             //req.getRequestDispatcher("/WEB-INF/inscription.jsp").forward(req, resp);
             HttpSession session = req.getSession();
-            session.setAttribute("user", u);
-            resp.sendRedirect("/accueil/");
+            session.setAttribute("Utilisateur", u);
+            resp.sendRedirect("/projetJEE/");
 
         }
     }

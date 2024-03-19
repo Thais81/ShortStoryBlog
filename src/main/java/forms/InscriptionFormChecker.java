@@ -4,6 +4,8 @@
  */
 package forms;
 
+import dao.DAOFactory;
+import dao.UtilisateurDAO;
 import entities.Utilisateur;
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,19 +27,19 @@ public class InscriptionFormChecker extends FormChecker<Utilisateur> {
         Utilisateur obj = new Utilisateur();
 
         // hydrater le bean avec les données du formulaire
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
+        String pseudo = request.getParameter("pseudo");
+        String mot_de_passe = request.getParameter("mot_de_passe");
         String verif = request.getParameter("verif");
-        obj.setLogin(login);
-        obj.setPassword(password);
-        //obj.setPassword(verif);
+        obj.setPseudo(pseudo);
+        obj.setMot_de_passe(mot_de_passe);
+        obj.setMot_de_passe(verif);
         // Vérifier les données du formulaire
 
-        if (login.trim().length() < MIN_LOGIN_LENGTH) {
-            setError("login", "ce champ doit etre rempli.");
+        if (pseudo.trim().length() < MIN_LOGIN_LENGTH) {
+            setError("pseudo", "ce champ doit etre rempli.");
         }
-        if (password.length() < MIN_PWD_LENGTH) {
-            setError("password", "ce champ doit etre rempli.");
+        if (mot_de_passe.length() < MIN_PWD_LENGTH) {
+            setError("mot_de_passe", "ce champ doit etre rempli.");
         }
 
         // Vérifier si le champ "verif" correspond au champ "password"
@@ -46,16 +48,17 @@ public class InscriptionFormChecker extends FormChecker<Utilisateur> {
 
         }
 
-        if (!verif.equals(password)) {
+        if (!verif.equals(mot_de_passe)) {
             setError("verif", "Le champ de vérification ne correspond pas au mot de passe.");
         }
 
         if (errors.isEmpty()) {
-            Utilisateur read = new UtilisateurDAO().read(login);
+            Utilisateur read = DAOFactory.getUtilisateurDAO().read(pseudo);
+
             if (read != null) {
-                setError("login", "Cet utilisateur existe. Veuillez vous connecter");
+                setError("pseudo", "Cet utilisateur existe. Veuillez vous connecter");
             } else {
-                new UtilisateurDAO().create(obj);
+                DAOFactory.getUtilisateurDAO().save(obj);
             }
         }
         //associer les messages d'erreur et le bean à la requête

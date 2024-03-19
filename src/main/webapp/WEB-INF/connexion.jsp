@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inscription</title>
+        <title>Connexion</title>
         <link rel="stylesheet" href="<c:url value="assets/css/form.css"/>">
         <link rel="stylesheet" href="<c:url value="assets/css/style.css"/>">
 
@@ -18,34 +18,32 @@
     <body>
         <%@include file="/WEB-INF/jspf/header.jspf" %>
 
-        <h1>Veuillez entrer vos informations pour l'inscription</h1>
+        <h1>Veuillez entrer vos paramètres de connexion</h1>
         <div>${requestScope.errorMsg}</div>
 
-        <form action="inscription" method="POST">
+        <form action="connexion" method="POST">
             <fieldset>
-                <legend>Informations d'inscription</legend>
+                <legend>Informations de connexion</legend>
                 <div>
-                    <label for="login">Login</label>
-                    <input id="login" name="login" type="text" value="${requestScope.bean.login}">
-                    <span class="error">${requestScope.errors.login}</span>
+                    <label for="pseudo">Pseudo</label>
+                    <input id="pseudo" name="pseudo" type="text" value="${requestScope.bean.pseudo}">
+                    <span class="error">${requestScope.errors.pseudo}</span>
                 </div>
                 <div>
-                    <label for="password">Password</label>
-                    <input id="password" name="password" type="password">
-                    <span class="error">${requestScope.errors.password}</span>
-                </div>
-                <div>
-                    <label for="verif">Vérification</label>
-                    <input id="verif" name="verif" type="password">
-                    <span class="error">${requestScope.errors.verif}</span>
+                    <label for="mot_de_passe">Mot de passe</label>
+                    <input id="mot_de_passe" name="mot_de_passe" type="password">
+                    <span class="error">${requestScope.errors.mot_de_passe}</span>
                 </div>
             </fieldset>
+
             <div>
                 <input type="submit" value="Envoyer">
                 <input type="reset" value="Annuler">
             </div>
+            <div class="content">
+                <img src="assets/img/canyon.jpg" alt="canyon">
+            </div>
         </form>
-
     </body>
     <%@include file="/WEB-INF/jspf/footer.jspf" %>
 
