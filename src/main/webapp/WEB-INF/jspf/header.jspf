@@ -1,0 +1,33 @@
+<%-- 
+    Document   : header
+    Created on : 19 mars 2024, 09:23:30
+    Author     : Thaïs GENIN
+--%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<<link rel="stylesheet" href="/assets/CSS/style.css"/>
+<header>
+    <div>
+        <h1>RTL2: le blog des nouvelles</h1>
+        <nav>
+            <ul>
+                <li><a href="<c:url value="/"/>"Accueil</a></li>
+                    <c:if test="${empty sessionScope.utilisateur}">
+                    <li><a href="/connexion">Se connecter</a></li>
+                    <li><a href="/insciption">s'inscrire</a></li>
+                    </c:if>
+                    <c:if test="${!empty sessionScope.utilisateur}">
+                    <li><a href="deconnexion">se déconnecter</a></li>
+                    <li><a href="<c:url value="/profil"/>">Profil</a></li>
+                    <li><a href="<c:url value="/profil/creer_nouvelle"/>">Créer</a></li>
+                    <li><a href="<c:url value="/profil/options"/>">Options</a></li>
+                    </c:if>
+            </ul>
+        </nav>
+        <div>
+            <c:if test="${!empty sessionScope.user}">
+                Bienvenu ${sessionScope.user.login}
+            </c:if>
+        </div>
+    </div>
+</header>
