@@ -1,0 +1,11 @@
+<%--
+    Document   : footer
+    Created on : 19 mars 2024, 09:22:46
+    Author     : Thaïs GENIN
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<div>
+    &#169 = l'équipe_RTL2
+</div>
