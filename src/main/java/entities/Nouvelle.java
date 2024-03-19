@@ -12,13 +12,12 @@ import java.sql.Timestamp;
  */
 public class Nouvelle implements Identifiable {
 
+    private Integer id_Nouvelle;
     private String titre;
     private String descriptif;
     private String contenu;
     private Timestamp date_publication;
     private Utilisateur id_utilisateur;
-
-    private Integer id_Nouvelle;
 
     public Integer getId_Nouvelle() {
         return id_Nouvelle;
@@ -58,5 +57,15 @@ public class Nouvelle implements Identifiable {
 
     public void setDate_publication(Timestamp date_publication) {
         this.date_publication = date_publication;
+    }
+
+    @Override
+    public Integer getId() {
+        return id_Nouvelle;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id_Nouvelle = id_Nouvelle;
     }
 }

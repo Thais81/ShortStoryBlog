@@ -4,6 +4,7 @@
  */
 package dao;
 
+import entities.Identifiable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
