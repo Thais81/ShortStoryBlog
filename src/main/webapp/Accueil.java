@@ -9,15 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Herbert Caffarel
+ * @author Thaïs Genin
  */
-@WebServlet("/index")
-@SuppressWarnings("serial")
-public class index extends HttpServlet {
+@WebServlet("/accueil")
+public class Accueil extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/accueil.jsp").forward(req, resp);
     }
 
 }
