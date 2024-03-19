@@ -4,6 +4,7 @@
  */
 package controllers;
 
+import dao.DAOFactory;
 import entities.Utilisateur;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,14 +23,14 @@ import javax.servlet.http.HttpServletResponse;
 public class Profil extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Afficher la page de profil avec le formulaire de changement de mot de passe
+
         Utilisateur user = (Utilisateur) req.getSession().getAttribute("user");
         int idUtilisateur = 0;
         if (user != null) {
             idUtilisateur = user.getId();
         }
 
-        // req.setAttribute("nouvelles", new NouvelleDAO().list(idUtilisateur));
+        req.setAttribute("nouvelles", DAOFactory.getNouvelleDAO().listNouvellesUtilisateur(idUtilisateur));
         req.getRequestDispatcher("/WEB-INF/profil.jsp").forward(req, resp);
     }
 

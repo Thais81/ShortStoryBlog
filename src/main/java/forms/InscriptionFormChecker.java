@@ -5,7 +5,6 @@
 package forms;
 
 import dao.DAOFactory;
-import dao.UtilisateurDAO;
 import entities.Utilisateur;
 import javax.servlet.http.HttpServletRequest;
 
@@ -33,6 +32,7 @@ public class InscriptionFormChecker extends FormChecker<Utilisateur> {
         obj.setPseudo(pseudo);
         obj.setMot_de_passe(mot_de_passe);
         obj.setMot_de_passe(verif);
+        obj.setEstActif(true);
         // Vérifier les données du formulaire
 
         if (pseudo.trim().length() < MIN_LOGIN_LENGTH) {
