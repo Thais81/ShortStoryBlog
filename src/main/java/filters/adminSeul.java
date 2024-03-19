@@ -4,6 +4,7 @@
  */
 package filters;
 
+import entities.Utilisateur;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;

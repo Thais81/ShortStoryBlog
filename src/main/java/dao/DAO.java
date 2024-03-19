@@ -5,6 +5,7 @@
 package dao;
 
 import entities.Identifiable;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ import java.util.logging.Logger;
  */
 public abstract class DAO<T extends Identifiable> {
 
-    protected Connexion connexion;
+    protected Connection connexion;
     protected String table;
     protected static Properties config;
 
@@ -96,5 +97,4 @@ public abstract class DAO<T extends Identifiable> {
         }
         return list;
     }
-
 }
