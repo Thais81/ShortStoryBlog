@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : adminListeNouvelles
     Created on : 19 mars 2024, 10:11:05
     Author     : Jopaups
@@ -10,10 +10,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Nouvelles</title>
     </head>
     <body>
-                <h2>Voici la liste nouvelles :</h2>
+        <h2>Voici la liste nouvelles :</h2>
 
         <c:forEach var="nouvelle" items="${requestScope.nouvelles}">
             <c:if test="${utilisateur.id_Utilisateur !=1}">

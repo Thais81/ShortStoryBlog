@@ -45,9 +45,6 @@
             <<h3>Voulez-vous vraiment supprimer votre compte?</h3>
             <a href="<c:url value="/profil/suppCompte?id=${profil.id}"/>">Oui je le veux</a>
         </section>
-
-
-
         <%@include file="/WEB-INF/jspf/footer.jspf" %>
     </body>
 </html>
