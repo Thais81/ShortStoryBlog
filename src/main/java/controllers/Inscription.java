@@ -27,7 +27,7 @@ public class Inscription extends HttpServlet {
         if (req.getSession().getAttribute("Utilisateur") == null) {
             req.getRequestDispatcher("/WEB-INF/inscription.jsp").forward(req, resp);
         } else {
-            resp.sendRedirect("/projetJEE/");
+            resp.sendRedirect("/index/");
         }
     }
 
@@ -47,7 +47,7 @@ public class Inscription extends HttpServlet {
             //req.getRequestDispatcher("/WEB-INF/inscription.jsp").forward(req, resp);
             HttpSession session = req.getSession();
             session.setAttribute("Utilisateur", u);
-            resp.sendRedirect("/projetJEE/");
+            resp.sendRedirect("/index/");
 
         }
     }
