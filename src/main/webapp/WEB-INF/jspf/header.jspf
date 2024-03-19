@@ -1,32 +1,33 @@
-<%-- 
+<%--
     Document   : header
     Created on : 19 mars 2024, 09:23:30
-    Author     : Thaïs GENIN
+    Author     : Thais GENIN
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page pageEncoding="UTF-8" %>
 <<link rel="stylesheet" href="/assets/CSS/style.css"/>
 <header>
     <div>
         <h1>RTL2: le blog des nouvelles</h1>
         <nav>
             <ul>
-                <li><a href="<c:url value="/"/>"Accueil</a></li>
-                    <c:if test="${empty sessionScope.utilisateur}">
-                    <li><a href="<c:url value="/connexion"/>"Se connecter</a></li>
-                    <li><a href="<c:url value="/insciption"/>"s'inscrire</a></li>
+                <li><a href="<c:url value="/accueil"/>">Accueil </a></li>
+                <c:if test="${empty sessionScope.utilisateur}">
+                    <li><a href="<c:url value="/connexion"/>">Se connecter</a></li>
+                    <li><a href="<c:url value="/insciption"/>">S'inscrire</a></li>
                 </c:if>
                     <c:if test="${!empty sessionScope.utilisateur}">
-                    <li><a href="deconnexion">se déconnecter</a></li>
+                    <li><a href="deconnexion">Se dÃ©connecter</a></li>
                     <li><a href="<c:url value="/profil"/>">Profil</a></li>
-                    <li><a href="<c:url value="/profil/creer_nouvelle"/>">Créer</a></li>
+                    <li><a href="<c:url value="/profil/creer_nouvelle"/>">CrÃ©er</a></li>
                     <li><a href="<c:url value="/profil/options"/>">Options</a></li>
                     </c:if>
             </ul>
         </nav>
         <div>
-            <c:if test="${!empty sessionScope.user}">
-                Bienvenu ${sessionScope.user.login}
+            <c:if test="${!empty sessionScope.utilisateur}">
+                Bienvenue ${sessionScope.utilisateur.pseudo}
             </c:if>
         </div>
     </div>
