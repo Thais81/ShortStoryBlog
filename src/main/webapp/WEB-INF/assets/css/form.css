@@ -1,0 +1,44 @@
+h1 {
+    text-align: center;
+}
+
+form {
+    width: 50%;
+    margin: auto;
+}
+
+form label, form label+input {
+    display: inline-block;
+}
+
+form label {
+    width: 20%;
+}
+
+form label+input {
+    width: 75%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons > input {
+    margin:1em;     
+}
+
+.error {
+    height: 1.5em;;
+    color: red;
+    font-size: 0.8em;
+    font-style: italic;
+    text-align: end;
+}
+
+.ok {
+    background-color: green;
+    color: whitesmoke;
+    font-size: 1.5em;
+    font-style: italic;
+}
