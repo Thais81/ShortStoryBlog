@@ -15,7 +15,7 @@ import java.util.Collection;
  *
  * @author Thaïs GENIN
  */
-public class NouvelleDAO extends DAO<NouvelleDAO> {
+public class NouvelleDAO extends DAO<Nouvelle> {
 
     public NouvelleDAO() {
         super("nouvelle");
@@ -28,14 +28,14 @@ public class NouvelleDAO extends DAO<NouvelleDAO> {
         nouv.setTitre(rs.getString("titre"));
         nouv.setContenu(rs.getString("contenu"));
         nouv.setDate_publication(rs.getTimestamp("date_publication"));
-        nouv.set(DAOFactory.getUtilisateurDao().read(rs.getInt("utilisateur")));
+        nouv.set(DAOFactory.getUtilisateurDAO().read(rs.getInt("utilisateur")));
         return nouv;
     }
 
     @Override
     public void create(Nouvelle art) {
-        String sql = "INSERT INTO " + table + " (title, content, created, author) VALUES (?, ?, ?, ?)";
-        try (PreparedStatement pstmt = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
+        String sql = "INSERT INTO " + table + " (titre, contenu, date_publication, utlisateur) VALUES (?, ?, ?, ?)";
+        try ( PreparedStatement pstmt = connexion.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, art.getTitre());
             pstmt.setString(2, art.getContenu());
             pstmt.setTimestamp(3, art.getDate_publication());
@@ -54,10 +54,10 @@ public class NouvelleDAO extends DAO<NouvelleDAO> {
 
     @Override
     protected void update(Nouvelle nouv) {
-        String sql = "UPDATE " + table + " SET id_article=?,"
-                + "title=?," + "content=?," + "created=?,"
-                + "author=?, WHERE id_" + table + "=?";
-        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+        String sql = "UPDATE " + table + " SET id_nouvelle=?,"
+                + "titre=?," + "contenu=?," + "date_publication=?,"
+                + "utilisateur=?, WHERE id_" + table + "=?";
+        try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
             pstmt.setInt(1, nouv.getId());
             pstmt.setString(2, nouv.getTitre());
             pstmt.setString(3, nouv.getContenu());
@@ -73,7 +73,7 @@ public class NouvelleDAO extends DAO<NouvelleDAO> {
     public Collection<Nouvelle> listLastN(int n) {
         ArrayList<Nouvelle> list = new ArrayList<>();
         String sql = "SELECT * FROM " + table + " ORDER BY created DESC LIMIT ?";
-        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+        try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
             pstmt.setInt(1, n);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {

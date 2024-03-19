@@ -10,6 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="<c:url value="assets/CSS/style.css"/>">
         <title>Nouvelles</title>
     </head>
     <body>
@@ -21,7 +22,7 @@
                     <legend><h3><c:out value="${nouvelle.pseudo}"/></h3></legend>
                     <div><c:out value="${nouvelle.pseudo}"/></div>
                     <div>Titre de la nouvelle : ${nouvelle.titre}</div><br>
-                    <div><c:out value="Mot de passe de l'utilisateur : ${person.password}"/></div>
+                    <div><c:out value="Mot de passe de l'utilisateur : ${utilisateur.mot_de_passe}"/></div>
                 </fieldset>
             </c:if>
         </c:forEach>

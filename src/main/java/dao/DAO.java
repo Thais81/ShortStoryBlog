@@ -4,6 +4,8 @@
  */
 package dao;
 
+import controllers.Connexion;
+import dao.MariadbConnexion;
 import entities.Identifiable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
