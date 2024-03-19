@@ -4,6 +4,7 @@
  */
 package dao;
 
+import entities.Identifiable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +18,7 @@ import java.util.logging.Logger;
 /**
  *
  * @author Amelie Solanas Pruvost
+ * @param <T>
  */
 public abstract class DAO<T extends Identifiable> {
 

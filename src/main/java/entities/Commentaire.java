@@ -14,15 +14,29 @@ public class Commentaire implements Identifiable{
     private String contenu;
     private Timestamp date_publication;
     private String etat;
-    Utilisateur id_Utilisateur;
+    private Utilisateur id_Utilisateur;
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Commentaire{");
+        sb.append("id_Commentaire=").append(id_Commentaire);
+        sb.append(", contenu=").append(contenu);
+        sb.append(", date_publication=").append(date_publication);
+        sb.append(", etat=").append(etat);
+        sb.append(", id_Utilisateur=").append(id_Utilisateur);
+        sb.append('}');
+        return sb.toString();
+    }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.id_Commentaire);
-        hash = 29 * hash + Objects.hashCode(this.contenu);
-        hash = 29 * hash + Objects.hashCode(this.date_publication);
-        hash = 29 * hash + Objects.hashCode(this.etat);
+        int hash = 3;
+        hash = 37 * hash + Objects.hashCode(this.id_Commentaire);
+        hash = 37 * hash + Objects.hashCode(this.contenu);
+        hash = 37 * hash + Objects.hashCode(this.date_publication);
+        hash = 37 * hash + Objects.hashCode(this.etat);
+        hash = 37 * hash + Objects.hashCode(this.id_Utilisateur);
         return hash;
     }
 
@@ -47,7 +61,10 @@ public class Commentaire implements Identifiable{
         if (!Objects.equals(this.id_Commentaire, other.id_Commentaire)) {
             return false;
         }
-        return Objects.equals(this.date_publication, other.date_publication);
+        if (!Objects.equals(this.date_publication, other.date_publication)) {
+            return false;
+        }
+        return Objects.equals(this.id_Utilisateur, other.id_Utilisateur);
     }
 
     public Integer getId_Commentaire() {
@@ -81,4 +98,23 @@ public class Commentaire implements Identifiable{
     public void setEtat(String etat) {
         this.etat = etat;
     }
+
+    public Utilisateur getId_Utilisateur() {
+        return id_Utilisateur;
+    }
+
+    public void setId_Utilisateur(Utilisateur id_Utilisateur) {
+        this.id_Utilisateur = id_Utilisateur;
+    }
+
+    @Override
+    public Integer getId() {
+        return id_Commentaire;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id_Commentaire = id;
+    }
+
 }
