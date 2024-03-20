@@ -8,9 +8,12 @@
 <%@ page pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="<c:url value="/assets/css/style.css"/>">
 <link rel="stylesheet" href="<c:url value="/assets/css/form.css"/>">
+<link rel="shortcut icon" href="<c:url value="/assets/img/logoLivre.png"/>" type="livre"/>
 
 <header>
     <h1>RTL2: le meilleur de vos nouvelles</h1>
+    <link rel="shortcut icon" href="<c:url value="/assets/img/logoLivre.png"/>" type="livre"/>
+
     <nav>
         <ul>
             <li><a href="<c:url value="/accueil"/>">Accueil </a></li>

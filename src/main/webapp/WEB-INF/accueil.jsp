@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="<c:url value="/assets/css/style.css"/>">
         <link rel="stylesheet" href="<c:url value="/assets/css/form.css"/>">
+        <link rel="shortcut icon" href="<c:url value="/assets/img/logoLivre.png"/>" type="livre"/>
 
     </head>
     <body>
