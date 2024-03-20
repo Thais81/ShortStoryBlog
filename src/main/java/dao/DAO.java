@@ -5,6 +5,7 @@
 package dao;
 
 import entities.Identifiable;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,10 +18,11 @@ import java.util.logging.Logger;
 /**
  *
  * @author Amelie Solanas Pruvost
+ * @param <T>
  */
 public abstract class DAO<T extends Identifiable> {
 
-    protected Connexion connexion;
+    protected Connection connexion;
     protected String table;
     protected static Properties config;
 
@@ -46,7 +48,7 @@ public abstract class DAO<T extends Identifiable> {
     public T read(Integer id) {
         T obj = null;
         String sql = "SELECT * FROM " + table + " WHERE id_" + table + "=?";
-        try (PreparedStatement pstmt = connexion.prepareStatement(sql)) {
+        try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
             pstmt.setInt(1, id);
             ResultSet rs = pstmt.executeQuery();
             if (rs.first()) {
@@ -60,7 +62,7 @@ public abstract class DAO<T extends Identifiable> {
 
     public void delete(Integer id) {
         String sql = "DELETE FROM " + table + " WHERE id_" + table + "=?";
-        try (PreparedStatement pstmt = connexion.prepareStatement(sql);) {
+        try ( PreparedStatement pstmt = connexion.prepareStatement(sql);) {
             pstmt.setInt(1, id);
             pstmt.executeUpdate();
         } catch (SQLException ex) {
@@ -71,7 +73,7 @@ public abstract class DAO<T extends Identifiable> {
     public int count() {
         int count = 0;
         String sql = "SELECT COUNT(*) AS c FROM " + table;
-        try (PreparedStatement pstmt = connexion.prepareStatement(sql)) {
+        try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
             ResultSet rs = pstmt.executeQuery();
             if (rs.first()) {
                 count = rs.getInt("c");
@@ -85,7 +87,7 @@ public abstract class DAO<T extends Identifiable> {
     public Collection<T> list() {
         ArrayList<T> list = new ArrayList<>();
         String sql = "SELECT * FROM " + table;
-        try (PreparedStatement pstmt = connexion.prepareStatement(sql)) {
+        try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 T obj = createObject(rs);

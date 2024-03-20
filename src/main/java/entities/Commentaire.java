@@ -14,29 +14,18 @@ public class Commentaire implements Identifiable{
     private String contenu;
     private Timestamp date_publication;
     private String etat;
+    private Nouvelle id_Nouvelle;
     private Utilisateur id_Utilisateur;
 
     @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Commentaire{");
-        sb.append("id_Commentaire=").append(id_Commentaire);
-        sb.append(", contenu=").append(contenu);
-        sb.append(", date_publication=").append(date_publication);
-        sb.append(", etat=").append(etat);
-        sb.append(", id_Utilisateur=").append(id_Utilisateur);
-        sb.append('}');
-        return sb.toString();
-    }
-
-    @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 37 * hash + Objects.hashCode(this.id_Commentaire);
-        hash = 37 * hash + Objects.hashCode(this.contenu);
-        hash = 37 * hash + Objects.hashCode(this.date_publication);
-        hash = 37 * hash + Objects.hashCode(this.etat);
-        hash = 37 * hash + Objects.hashCode(this.id_Utilisateur);
+        int hash = 5;
+        hash = 17 * hash + Objects.hashCode(this.id_Commentaire);
+        hash = 17 * hash + Objects.hashCode(this.contenu);
+        hash = 17 * hash + Objects.hashCode(this.date_publication);
+        hash = 17 * hash + Objects.hashCode(this.etat);
+        hash = 17 * hash + Objects.hashCode(this.id_Nouvelle);
+        hash = 17 * hash + Objects.hashCode(this.id_Utilisateur);
         return hash;
     }
 
@@ -64,7 +53,36 @@ public class Commentaire implements Identifiable{
         if (!Objects.equals(this.date_publication, other.date_publication)) {
             return false;
         }
+        if (!Objects.equals(this.id_Nouvelle, other.id_Nouvelle)) {
+            return false;
+        }
         return Objects.equals(this.id_Utilisateur, other.id_Utilisateur);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Commentaire{");
+        sb.append("id_Commentaire=").append(id_Commentaire);
+        sb.append(", contenu=").append(contenu);
+        sb.append(", date_publication=").append(date_publication);
+        sb.append(", etat=").append(etat);
+        sb.append(", id_Nouvelle=").append(id_Nouvelle);
+        sb.append(", id_Utilisateur=").append(id_Utilisateur);
+        sb.append('}');
+        return sb.toString();
+    }
+
+
+
+    @Override
+    public Integer getId() {
+        return id_Commentaire;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id_Commentaire = id;
     }
 
     public Integer getId_Commentaire() {
@@ -99,6 +117,14 @@ public class Commentaire implements Identifiable{
         this.etat = etat;
     }
 
+    public Nouvelle getId_Nouvelle() {
+        return id_Nouvelle;
+    }
+
+    public void setId_Nouvelle(Nouvelle id_Nouvelle) {
+        this.id_Nouvelle = id_Nouvelle;
+    }
+
     public Utilisateur getId_Utilisateur() {
         return id_Utilisateur;
     }
@@ -107,14 +133,5 @@ public class Commentaire implements Identifiable{
         this.id_Utilisateur = id_Utilisateur;
     }
 
-    @Override
-    public Integer getId() {
-        return id_Commentaire;
-    }
-
-    @Override
-    public void setId(Integer id) {
-        this.id_Commentaire = id;
-    }
 
 }

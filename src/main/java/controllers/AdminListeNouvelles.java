@@ -17,7 +17,7 @@ public class AdminListeNouvelles extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-         req.setAttribute("nouvelles", DAOFactory.NouvelleDAO().list());
+         req.setAttribute("nouvelles", DAOFactory.getNouvelleDAO().list());
         req.getRequestDispatcher("WEB-INF/adminListeNouvelles.jsp").forward(req, resp);
     }
 

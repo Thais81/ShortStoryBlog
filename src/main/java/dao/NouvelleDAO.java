@@ -18,7 +18,7 @@ import java.util.Collection;
 public class NouvelleDAO extends DAO<Nouvelle> {
 
     public NouvelleDAO() {
-        super("nouvelle");
+        super("Nouvelle");
     }
 
     @Override
@@ -28,7 +28,7 @@ public class NouvelleDAO extends DAO<Nouvelle> {
         nouv.setTitre(rs.getString("titre"));
         nouv.setContenu(rs.getString("contenu"));
         nouv.setDate_publication(rs.getTimestamp("date_publication"));
-        nouv.setId_Utilisateur(DAOFactory.getUtilisateurDAO().read(rs.getInt("utilisateur")));
+        nouv.setId_Utilisateur(DAOFactory.getUtilisateurDAO().read(rs.getInt("id_Utilisateur")));
         return nouv;
     }
 
