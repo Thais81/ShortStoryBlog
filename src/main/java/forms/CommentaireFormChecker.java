@@ -4,8 +4,11 @@
  */
 package forms;
 
+import dao.DAO;
 import dao.DAOFactory;
 import entities.Commentaire;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -14,11 +17,9 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class CommentaireFormChecker extends FormChecker<Commentaire> {
 
-
     public CommentaireFormChecker(HttpServletRequest request) {
         super(request);
     }
-
 
     @Override
     public Commentaire checkForm() {
@@ -34,8 +35,8 @@ public class CommentaireFormChecker extends FormChecker<Commentaire> {
         }
 
         if (errors.isEmpty()) {
-            DAOFactory.geCommentaireDAO().save(obj);
-            }
+            DAOFactory.geCotmmentaireDAO().save(obj);
+        }
 
         //associer les messages d'erreur et le bean à la requet
         request.setAttribute("errors", errors);
