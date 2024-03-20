@@ -14,6 +14,7 @@ public final class DAOFactory {
 //    private static VoteDAO voteDAO;
     private static CommentaireDAO commentaireDAO;
     private static UtilisateurDAO utilisateurDAO;
+    private static NouvelleDAO nouvelleDAO;
 
     private DAOFactory() {
     }
@@ -44,6 +45,13 @@ public final class DAOFactory {
             utilisateurDAO = new UtilisateurDAO();
         }
         return utilisateurDAO;
+    }
+
+    public static NouvelleDAO getNouvelleDAO() {
+        if (nouvelleDAO == null) {
+            nouvelleDAO = new NouvelleDAO();
+        }
+        return nouvelleDAO;
     }
 
 }

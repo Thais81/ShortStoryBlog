@@ -14,7 +14,7 @@
         <%@include file="/WEB-INF/jspf/header.jspf" %>
         <main>
             <h1>Bienvenue sur mon blog</h1>
-            <h2>Voici la liste de mes articles</h2>
+            <h2>Voici la liste de tous les articles</h2>
             <c:forEach var="article" items="${requestScope.nouvelle}">
                 <article>
                     <h3><c:out value="${nouvelle.title}" /></h3>
