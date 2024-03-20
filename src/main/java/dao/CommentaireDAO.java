@@ -4,8 +4,6 @@ import entities.Commentaire;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -61,6 +59,7 @@ public class CommentaireDAO extends DAO<Commentaire> {
             pstmt.setTimestamp(2, obj.getDate_publication());
             pstmt.setInt(3, obj.getId_Nouvelle().getId());
             pstmt.setInt(4, obj.getId_Utilisateur().getId());
+            pstmt.setInt(5, obj.getId());
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CommentaireDAO.class.getName()).log(Level.SEVERE, null, ex);
