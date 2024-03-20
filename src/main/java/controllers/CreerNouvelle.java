@@ -2,7 +2,8 @@
 
 package controllers;
 
-import form.NouvelleFormChecker;
+
+import forms.NouvelleFormChecker;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import javax.servlet.ServletException;
@@ -28,9 +29,11 @@ public class CreerNouvelle extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding(StandardCharsets.UTF_8.toString());
         NouvelleFormChecker fc = new NouvelleFormChecker(req);
-        Nouvelle nouv = fc.checkForm();
+        fc.checkForm();
         if (fc.getErrors().isEmpty()) {
-            resp.sendRedirect(req.getContextPath() + "/");
+            req.setAttribute("message", "Votre nouvelle est bien enregistrée");
+//            resp.sendRedirect(req.getContextPath() + "/");
+            req.getRequestDispatcher("/WEB-INF/creerNouvelle.jsp").forward(req, resp);
         } else {
             req.setAttribute("errorMsg", "Votre formulaire comporte des erreurs.");
             req.getRequestDispatcher("/WEB-INF/creerNouvelle.jsp").forward(req, resp);

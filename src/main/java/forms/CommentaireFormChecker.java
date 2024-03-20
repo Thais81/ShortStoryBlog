@@ -4,11 +4,8 @@
  */
 package forms;
 
-import dao.DAO;
 import dao.DAOFactory;
 import entities.Commentaire;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -35,7 +32,7 @@ public class CommentaireFormChecker extends FormChecker<Commentaire> {
         }
 
         if (errors.isEmpty()) {
-            DAOFactory.geCotmmentaireDAO().save(obj);
+            DAOFactory.getCommentaireDAO().save(obj);
         }
 
         //associer les messages d'erreur et le bean à la requet

@@ -20,6 +20,7 @@
 
 
             <form action="<c:url value="/profil/creer_nouvelle" />" method="post">
+                <div>${requestScope.message} </div>
                 <div class="error"> ${requestScope.errorMsg}</div>
                 <fieldset>
                     <legend>Nouvelle</legend>
