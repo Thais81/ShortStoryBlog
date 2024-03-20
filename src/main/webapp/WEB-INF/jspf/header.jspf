@@ -18,9 +18,9 @@
                     <li><a href="<c:url value="/insciption"/>">S'inscrire</a></li>
                 </c:if>
                         <c:if test="${!empty sessionScope.user}">
-                        <li><a href="<c:url value="/deconnexion"/>">Se d�connecter</a></li>
+                        <li><a href="<c:url value="/deconnexion"/>">Se déconnecter</a></li>
                         <li><a href="<c:url value="/profil"/>">Profil</a></li>
-                    <li><a href="<c:url value="/profil/creer_nouvelle"/>">Cr�er</a></li>
+                    <li><a href="<c:url value="/profil/creer_nouvelle"/>">Crï¿½er</a></li>
                     <li><a href="<c:url value="/profil/options"/>">Options</a></li>
                     </c:if>
             </ul>

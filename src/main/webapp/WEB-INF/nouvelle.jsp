@@ -19,10 +19,12 @@
         <main>
 
             <h1><c:out value="${nouvelle.titre}"/></h1>
-            <div class="under">&Eacute;crit par <c:out value="${nouvelle.pseudo}"/> le ${nouvelle.date}</div>
+            <div class="under">&Eacute;crit par <c:out value="${sessionScope.user.pseudo}}"/> le ${nouvelle.date_publication}</div>
             <div><c:out value="${nouvelle.contenu}"/></div>
 
-            <div>
+            <c:if test="${sessionScope.user != null}">
+
+                <div>
                 <form action="nouvelle.jsp" method="post">
                     <label for="commentaire">Commentaire :</label><br>
                     <div class="error">${requestScope.errors.contenu}</div>
@@ -31,13 +33,14 @@
                     <input type="reset" value="Annuler" onclick="history.back()">
                 </form>
             </div>
-                    <h2>Liste des commentaires</h2>
-                    <c:forEach var="commentaire" items="${requestScope.commentaire}">
-                        <article>
+            </c:if>
+            <h2>Liste des commentaires</h2>
+            <c:forEach var="commentaire" items="${requestScope.commentaire}">
+                <article>
                             <div class="under">&Eacute;crit par ${commentaire.pseudo} le ${commentaire.date}</div>
                             <div>${commentaire.contenu}</div>
                         </article>
-                    </c:forEach>
+                     </c:forEach>
 
         </main>
         <%@include file="/WEB-INF/jspf/footer.jspf" %>

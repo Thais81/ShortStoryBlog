@@ -5,6 +5,8 @@
  */
 package controllers;
 
+import dao.DAOFactory;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,27 +18,26 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thaïs GENIN
  */
-@WebServlet("/createArticle")
+@WebServlet("/nouvelle")
 public class Nouvelle extends HttpServlet {
 
-        @Override
-        protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-                throws ServletException, IOException {
-            if (req.getSession().getAttribute("utilisateur") != null) {
-                req.getRequestDispatcher("/WEB-INF/profil.jsp").forward(req, resp);
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try {
+            int id = Integer.valueOf(req.getParameter("id"));
+            entities.Nouvelle nouvelle = DAOFactory.getNouvelleDAO().read(id);
+            if (nouvelle == null) {
+                throw new IllegalArgumentException();
             } else {
-                resp.sendRedirect(req.getContextPath() + "/accueil");
+                req.setAttribute("nouvelle", nouvelle);
+                req.getRequestDispatcher("/WEB-INF/nouvelle.jsp").forward(req, resp);
             }
+        } catch (IllegalArgumentException ex) {
+            resp.sendError(404);
         }
+    }
 
-        @Override
-        protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-                throws ServletException, IOException {
-            if (req.getSession().getAttribute("utilisateur") != null) {
-                req.getRequestDispatcher("/WEB-INF/profile.jsp").forward(req, resp);
-            } else {
-                resp.sendRedirect(req.getContextPath() + "/accueil");
-            }
-        }
 
-}
+    }
+
+
