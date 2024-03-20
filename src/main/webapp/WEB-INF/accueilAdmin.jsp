@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : accueilAdmin
     Created on : 20 mars 2024, 10:43:05
     Author     : Thaïs GENIN
@@ -19,6 +19,6 @@
         </ul>
     </nav>
 
-            <%@include file="/WEB-INF/jspf/footer.jspf" %>
+    <%@include file="/WEB-INF/jspf/footer.jspf" %>
 </body>
 </html>

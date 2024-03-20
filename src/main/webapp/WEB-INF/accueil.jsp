@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="<c:url value="assets/CSS/style.css"/>"
+        <link rel="stylesheet" href="<c:url value="assets/css/style.css"/>">
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/header.jspf" %>
@@ -24,8 +24,9 @@
                         <p><c:out value="${nouvelle.contenu}"/></p>
                     </article>
                 </div>
-            </main>
-        </c:forEach>
-        <%@include file="/WEB-INF/jspf/footer.jspf" %>
-    </body>
-</html>
+                    <div>
+                </main>
+                </c:forEach>
+                <%@include file="/WEB-INF/jspf/footer.jspf" %>
+                </body>
+                </html>
