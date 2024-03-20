@@ -10,8 +10,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Connexion</title>
-        <link rel="stylesheet" href="<c:url value="assets/css/form.css"/>">
-        <link rel="stylesheet" href="<c:url value="assets/css/style.css"/>">
+        <link rel="stylesheet" href="<c:url value="/assets/css/form.css"/>">
+        <link rel="stylesheet" href="<c:url value="/assets/css/style.css"/>">
 
 
     </head>

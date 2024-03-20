@@ -5,7 +5,8 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page pageEncoding="UTF-8" %>
-<link rel="stylesheet" href="<c:url value="/assets/CSS/style.css"/>">
+<link rel="stylesheet" href="<c:url value="/assets/css/style.css"/>">
+<link rel="stylesheet" href="<c:url value="/assets/css/admin.css"/>">
 <header>
     <h1>RTL2: le meilleur de vos nouvelles</h1>
     <h2>Bienvenu Admin</h2>
