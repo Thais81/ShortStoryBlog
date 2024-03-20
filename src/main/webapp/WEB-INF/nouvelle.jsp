@@ -20,7 +20,7 @@
 
             <h1><c:out value="${nouvelle.titre}"/></h1>
             <div><c:out value="${nouvelle.contenu}"/></div>
-            <div class="under">&Eacute;crit par <c:out value="${sessionScope.user.pseudo}}"/> le ${nouvelle.date_publication}</div>
+            <div class="under">&Eacute;crit par <c:out value="${nouvelle.id_Utilisateur.pseudo}"/> le ${nouvelle.date_publication}</div>
 
 
             <h2>Liste des commentaires</h2>
