@@ -18,13 +18,24 @@ public class AjouterCommentaire extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/nouvelle.jsp").forward(req, resp);
+        if (req.getSession().getAttribute("utilisateur") != null) {
+            req.getRequestDispatcher("/WEB-INF/nouvelle.jsp").forward(req, resp);
+        } else {
+            resp.sendRedirect(req.getContextPath() + "/accueil");
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        resp.sendRedirect(req.getContextPath() + "/");
-
+        CommentaireFormChecker cfc = new CommentaireFormChecker(req);
+        Commentaire com = cfc.checkForm();
+        if (cfc.getErrors().isEmpty()) {
+            req.setAttribute("Msg", "Votre commentaire à bien été ajouté!");
+            resp.sendRedirect(req.getContextPath() + "/");
+        } else {
+            req.setAttribute("Msg", "Votre commentaire n'a pas pu être ajouté!");
+            resp.sendRedirect(req.getContextPath() + "/");
+        }
     }
+
 }

@@ -34,7 +34,7 @@ public class CommentaireFormChecker extends FormChecker<Commentaire> {
         }
 
         if (errors.isEmpty()) {
-            DAOFactory.geCommentaireDAO().save(obj);
+            DAOFactory.getCommentaireDAO().save(obj);
             }
 
         //associer les messages d'erreur et le bean à la requet

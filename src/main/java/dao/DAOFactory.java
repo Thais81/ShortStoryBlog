@@ -32,7 +32,7 @@ public final class DAOFactory {
 //        return voteDAO;
 //    }
 
-    public static CommentaireDAO geCommentaireDAO() {
+    public static CommentaireDAO getCommentaireDAO() {
         if (commentaireDAO == null) {
             commentaireDAO = new CommentaireDAO();
         }
