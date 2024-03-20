@@ -23,13 +23,13 @@
             <legend>Liste de mes nouvelles</legend>
             <div class="nouvelles">
                 <div class="nouvelle">
-                <h2>Voici la liste de mes nouvelles</h2>
-            <c:forEach var="nouvelle" items = "${requestScope.nouvelles}">
-                <h3>${nouvelle.titre}</h3>
-                <h4>${nouvelle.descriptif}</h4>
-                <div class="under">&Eacute;crit par ${nouvelle.id_Utilisateur.pseudo} le ${nouvelle.date_publication}</div>
-                <div>${nouvelle.contenu}</div>
-                 <div class="more"><a href="<c:url value="/nouvelle?id=${nouvelle.id}"/>"> En savoir +</a></div>
+
+                    <c:forEach var="nouvelle" items = "${requestScope.nouvelles}">
+                        <h3>${nouvelle.titre}</h3>
+                        <h4>${nouvelle.descriptif}</h4>
+                        <div class="under">&Eacute;crit par ${nouvelle.id_Utilisateur.pseudo} le ${nouvelle.date_publication}</div>
+                <p>${nouvelle.contenu}</p>
+                <div class="more"><a href="<c:url value="/nouvelle?id=${nouvelle.id}"/>"> En savoir +</a></div>
 
             </c:forEach>
 
