@@ -43,16 +43,13 @@ public class Connexion extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("user", u);
 
-            switch (u.getId()) {
-                case 1:
+            if (u.getId() != 1) {
+                resp.sendRedirect(req.getContextPath() + "/accueil");
 
-                    req.getRequestDispatcher("/WEB-INF/accueilAdmin.jsp")
-                            .forward(req, resp);
-                    break;
-                default:
-                    resp.sendRedirect(req.getContextPath() + "/accueil");
-                // req.getRequestDispatcher("/WEB-INF/accueil.jsp")
-                //         .forward(req, resp);
+            } else {
+
+                req.getRequestDispatcher("/WEB-INF/accueilAdmin.jsp")
+                        .forward(req, resp);
             }
 
         } else {
