@@ -5,7 +5,6 @@
 package forms;
 
 import dao.DAOFactory;
-import dao.UtilisateurDAO;
 import entities.Utilisateur;
 import javax.servlet.http.HttpServletRequest;
 
