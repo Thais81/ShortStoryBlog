@@ -27,7 +27,7 @@ public class Inscription extends HttpServlet {
         if (req.getSession().getAttribute("Utilisateur") == null) {
             req.getRequestDispatcher("/WEB-INF/inscription.jsp").forward(req, resp);
         } else {
-            resp.sendRedirect("/projetJEE/");
+            resp.sendRedirect("/index/");
         }
     }
 
@@ -38,16 +38,12 @@ public class Inscription extends HttpServlet {
         Utilisateur u = ifc.checkForm();
         // Si erreur => affichage formulaire sinon affichage page OK
         if (!ifc.getErrors().isEmpty()) {
-            // Si le formulaire est valide, vous pouvez rediriger vers une autre page
-            //resp.sendRedirect("/blog/inscrip"); si utilisation de sendRedirect creer un controller 
             req.getRequestDispatcher("/WEB-INF/inscription.jsp").forward(req, resp);
 
         } else {
-            // Si des erreurs sont présentes, afficher à nouveau le formulaire avec les erreurs
-            //req.getRequestDispatcher("/WEB-INF/inscription.jsp").forward(req, resp);
             HttpSession session = req.getSession();
-            session.setAttribute("Utilisateur", u);
-            resp.sendRedirect("/projetJEE/");
+            session.setAttribute("user", u);
+            resp.sendRedirect("/index/");
 
         }
     }
