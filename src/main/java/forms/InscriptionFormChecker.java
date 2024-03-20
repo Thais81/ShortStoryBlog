@@ -4,6 +4,7 @@
  */
 package forms;
 
+import controllers.PasswordAuthentication;
 import dao.DAOFactory;
 import entities.Utilisateur;
 import javax.servlet.http.HttpServletRequest;
@@ -58,6 +59,8 @@ public class InscriptionFormChecker extends FormChecker<Utilisateur> {
             if (read != null) {
                 setError("pseudo", "Cet utilisateur existe. Veuillez vous connecter");
             } else {
+                PasswordAuthentication pa = new PasswordAuthentication();
+                obj.setMot_de_passe(pa.hash(mot_de_passe.toCharArray()));
                 DAOFactory.getUtilisateurDAO().save(obj);
             }
         }

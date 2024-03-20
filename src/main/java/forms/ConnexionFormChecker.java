@@ -4,6 +4,7 @@
  */
 package forms;
 
+import controllers.PasswordAuthentication;
 import dao.DAOFactory;
 import dao.UtilisateurDAO;
 import entities.Utilisateur;
@@ -41,8 +42,8 @@ public class ConnexionFormChecker extends FormChecker<Utilisateur> {
         }
         if (errors.isEmpty()) {
             Utilisateur read = DAOFactory.getUtilisateurDAO().read(pseudo);
-
-            if (read == null || !mot_de_passe.equals(read.getMot_de_passe())) {
+            PasswordAuthentication pa = new PasswordAuthentication();
+            if (read == null || !pa.authenticate(mot_de_passe.toCharArray(), read.getMot_de_passe())) {
                 setError("pseudo", "Ces informations ne nous permettent pas de vous connecter");
             }
             if (read != null) {
