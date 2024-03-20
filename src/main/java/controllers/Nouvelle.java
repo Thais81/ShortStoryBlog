@@ -16,27 +16,28 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thaïs GENIN
  */
-@WebServlet("/createArticle")
+@WebServlet("/nouvelle")
 public class Nouvelle extends HttpServlet {
 
-        @Override
-        protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-                throws ServletException, IOException {
-            if (req.getSession().getAttribute("utilisateur") != null) {
-                req.getRequestDispatcher("/WEB-INF/profil.jsp").forward(req, resp);
-            } else {
-                resp.sendRedirect(req.getContextPath() + "/accueil");
-            }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        if (req.getSession().getAttribute("utilisateur") != null) {
+            req.getRequestDispatcher("/WEB-INF/profil.jsp").forward(req, resp);
+        } else {
+            resp.sendRedirect(req.getContextPath() + "/accueil");
         }
+    }
 
-        @Override
-        protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-                throws ServletException, IOException {
-            if (req.getSession().getAttribute("utilisateur") != null) {
-                req.getRequestDispatcher("/WEB-INF/profile.jsp").forward(req, resp);
-            } else {
-                resp.sendRedirect(req.getContextPath() + "/accueil");
-            }
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        if (req.getSession().getAttribute("utilisateur") != null) {
+            req.getRequestDispatcher("/WEB-INF/profile.jsp").forward(req, resp);
+        } else {
+            resp.sendRedirect(req.getContextPath() + "/accueil");
         }
+    }
+
 
 }
