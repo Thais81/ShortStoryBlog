@@ -17,11 +17,11 @@
                     <article>
                         <h3><c:out value="${nouvelle.titre}"/></h3>
                         <div>&Eacute;crit par <c:out value="${nouvelle.id_Utilisateur.pseudo}"/>
-                            le <c:out value="${nouvelle.date_publication}"/></div>
+                            le <c:out value="${nouvelle.date_publication}"/></div><br>
                         <div><c:out value="${nouvelle.contenu}"/></div>
-                        <div><a href="<c:url value="/nouvelle?id=${nouvelle.id_Nouvelle}"/>">Plus...</a></div>
+                            <div><a href="<c:url value="/nouvelle?id=${nouvelle.id_Nouvelle}"/>">Plus...</a></div>
 
-                        <p><c:out value="${nouvelle.contenu}"/></p>
+
                     </article>
                 </div>
                     <div>
