@@ -22,19 +22,20 @@
             <div class="under">&Eacute;crit par <c:out value="${sessionScope.user.pseudo}}"/> le ${nouvelle.date_publication}</div>
             <div><c:out value="${nouvelle.contenu}"/></div>
 
+
+            <h2>Liste des commentaires</h2>
             <c:if test="${sessionScope.user != null}">
 
                 <div>
-                <form action="nouvelle.jsp" method="post">
-                    <label for="commentaire">Commentaire :</label><br>
-                    <div class="error">${requestScope.errors.contenu}</div>
-                    <textarea id="contenu" name="contenu" rows="4" cols="50"></textarea><br>
-                    <input type="submit" value="Envoyer">
-                    <input type="reset" value="Annuler" onclick="history.back()">
-                </form>
-            </div>
+                    <form action="nouvelle.jsp" method="post">
+                        <label for="commentaire">Commentaire :</label><br>
+                        <div class="error">${requestScope.errors.contenu}</div>
+                        <textarea id="contenu" name="contenu" rows="4" cols="50"></textarea><br>
+                        <input type="submit" value="Envoyer">
+                        <input type="reset" value="Annuler" onclick="history.back()">
+                    </form>
+                </div>
             </c:if>
-            <h2>Liste des commentaires</h2>
             <c:forEach var="commentaire" items="${requestScope.commentaire}">
                 <article>
                             <div class="under">&Eacute;crit par ${commentaire.pseudo} le ${commentaire.date}</div>

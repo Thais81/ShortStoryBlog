@@ -36,8 +36,8 @@
                     </div>
                     <div>
                         <label for="contenu">Contenu de la nouvelle</label>
-                        <textarea id="contenu" name="next" rows="15" cols="25"></textarea>
-                        <div class="error">${requestScope.errors.next}</div>
+                        <textarea id="contenu" name="contenu" rows="15" cols="25"></textarea>
+                        <div class="error">${requestScope.errors.contenu}</div>
 
                     </div>
                 </fieldset>
