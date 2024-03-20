@@ -17,7 +17,7 @@ public class NouvelleFormChecker extends FormChecker<Nouvelle> {
 
     private final String TITLE_FIELD = "titre";
     private final String DESCRIPTIF_FIELD = "descriptif";
-    private final String CONTENT_FIELD = "nouvelle";
+    private final String CONTENT_FIELD = "contenu";
 //    private final int MIN_TITLE_LENGTH = 5;
 //    private final int MIN_CONTENT_LENGTH = 10;
 

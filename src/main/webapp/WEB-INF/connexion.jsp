@@ -40,9 +40,7 @@
                 <input type="submit" value="Envoyer">
                 <input type="reset" value="Annuler">
             </div>
-            <div class="content">
-                <img src="assets/img/canyon.jpg" alt="canyon">
-            </div>
+
         </form>
     </body>
     <%@include file="/WEB-INF/jspf/footer.jspf" %>

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/assets/CSS/style.css"/>
 <header>
     <div>
-        <h1>RTL2: le blog des nouvelles</h1>
+        <h1><em>RTL2: le blog des nouvelles</em></h1>
         <nav>
             <ul>
                 <li><a href="<c:url value="/accueil"/>">Accueil</a></li>

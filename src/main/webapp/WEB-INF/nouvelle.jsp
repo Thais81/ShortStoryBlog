@@ -19,13 +19,12 @@
         <main>
 
             <h1><c:out value="${nouvelle.titre}"/></h1>
-            <div class="under">&Eacute;crit par <c:out value="${sessionScope.user.pseudo}}"/> le ${nouvelle.date_publication}</div>
             <div><c:out value="${nouvelle.contenu}"/></div>
+            <div class="under">&Eacute;crit par <c:out value="${sessionScope.user.pseudo}}"/> le ${nouvelle.date_publication}</div>
 
 
             <h2>Liste des commentaires</h2>
             <c:if test="${sessionScope.user != null}">
-
                 <div>
                     <form action="nouvelle.jsp" method="post">
                         <label for="commentaire">Commentaire :</label><br>
