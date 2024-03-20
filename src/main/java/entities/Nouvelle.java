@@ -133,4 +133,5 @@ public class Nouvelle implements Identifiable {
     public void setId_Utilisateur(Utilisateur id_Utilisateur) {
         this.id_Utilisateur = id_Utilisateur;
     }
+
 }

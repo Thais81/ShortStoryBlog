@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.Nouvelle to edit this template
@@ -37,4 +38,5 @@ public class Nouvelle extends HttpServlet {
                 resp.sendRedirect(req.getContextPath() + "/accueil");
             }
         }
+
 }

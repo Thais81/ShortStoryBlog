@@ -14,11 +14,9 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class CommentaireFormChecker extends FormChecker<Commentaire> {
 
-
     public CommentaireFormChecker(HttpServletRequest request) {
         super(request);
     }
-
 
     @Override
     public Commentaire checkForm() {
@@ -35,7 +33,7 @@ public class CommentaireFormChecker extends FormChecker<Commentaire> {
 
         if (errors.isEmpty()) {
             DAOFactory.getCommentaireDAO().save(obj);
-            }
+        }
 
         //associer les messages d'erreur et le bean à la requet
         request.setAttribute("errors", errors);

@@ -34,6 +34,7 @@ form label+input {
     font-size: 0.8em;
     font-style: italic;
     text-align: end;
+
 }
 
 .ok {
@@ -41,4 +42,5 @@ form label+input {
     color: whitesmoke;
     font-size: 1.5em;
     font-style: italic;
+
 }

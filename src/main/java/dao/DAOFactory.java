@@ -16,6 +16,7 @@ public final class DAOFactory {
     private static UtilisateurDAO utilisateurDAO;
 
     private DAOFactory() {
+
     }
 
     public static NouvelleDAO getNouvelleDAO() {
@@ -24,7 +25,7 @@ public final class DAOFactory {
         }
         return nouvelleDAO;
     }
-
+//
 //    public static VoteDAO getVoteDAO() {
 //        if (voteDAO == null) {
 //            voteDAO = new VoteDAO();
@@ -37,6 +38,7 @@ public final class DAOFactory {
             commentaireDAO = new CommentaireDAO();
         }
         return commentaireDAO;
+
     }
 
     public static UtilisateurDAO getUtilisateurDAO() {
@@ -45,5 +47,6 @@ public final class DAOFactory {
         }
         return utilisateurDAO;
     }
+
 
 }
