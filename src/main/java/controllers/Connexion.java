@@ -29,7 +29,7 @@ public class Connexion extends HttpServlet {
             req.getRequestDispatcher("/WEB-INF/connexion.jsp")
                     .forward(req, resp);
         } else {
-            resp.sendRedirect("/index/");
+            resp.sendRedirect("/accueil/");
         }
 
     }

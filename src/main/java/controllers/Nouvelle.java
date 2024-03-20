@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thaïs GENIN
  */
-@WebServlet("/createArticle")
+@WebServlet("/creer_nouvelle")
 public class Nouvelle extends HttpServlet {
 
     @Override
@@ -24,7 +24,7 @@ public class Nouvelle extends HttpServlet {
         if (req.getSession().getAttribute("utilisateur") != null) {
             req.getRequestDispatcher("/WEB-INF/profil.jsp").forward(req, resp);
         } else {
-            resp.sendRedirect(req.getContextPath() + "/index");
+            resp.sendRedirect(req.getContextPath() + "/accueil");
         }
     }
 
@@ -34,7 +34,7 @@ public class Nouvelle extends HttpServlet {
         if (req.getSession().getAttribute("utilisateur") != null) {
             req.getRequestDispatcher("/WEB-INF/profil.jsp").forward(req, resp);
         } else {
-            resp.sendRedirect(req.getContextPath() + "/index");
+            resp.sendRedirect(req.getContextPath() + "/accueil");
         }
     }
 }

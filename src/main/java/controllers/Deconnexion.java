@@ -21,13 +21,13 @@ public class Deconnexion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().invalidate();
-        resp.sendRedirect("/index/");
+        resp.sendRedirect("/accueil/");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().invalidate();
-        resp.sendRedirect("/index/");
+        resp.sendRedirect("/accueil/");
     }
 
 }
