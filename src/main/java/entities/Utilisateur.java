@@ -13,6 +13,7 @@ public class Utilisateur implements Identifiable, Serializable {
     private Integer id;
     private String pseudo;
     private String mot_de_passe;
+    private boolean estActif;
 
     @Override
     public String toString() {
@@ -21,6 +22,7 @@ public class Utilisateur implements Identifiable, Serializable {
         sb.append("id=").append(id);
         sb.append(", pseudo=").append(pseudo);
         sb.append(", mot_de_passe=").append(mot_de_passe);
+        sb.append(", estActif=").append(estActif);
         sb.append('}');
         return sb.toString();
     }
@@ -28,9 +30,10 @@ public class Utilisateur implements Identifiable, Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.id);
-        hash = 29 * hash + Objects.hashCode(this.pseudo);
-        hash = 29 * hash + Objects.hashCode(this.mot_de_passe);
+        hash = 37 * hash + Objects.hashCode(this.id);
+        hash = 37 * hash + Objects.hashCode(this.pseudo);
+        hash = 37 * hash + Objects.hashCode(this.mot_de_passe);
+        hash = 37 * hash + Objects.hashCode(this.estActif);
         return hash;
     }
 
@@ -52,10 +55,21 @@ public class Utilisateur implements Identifiable, Serializable {
         if (!Objects.equals(this.mot_de_passe, other.mot_de_passe)) {
             return false;
         }
-        return Objects.equals(this.id, other.id);
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return Objects.equals(this.estActif, other.estActif);
     }
 
+    @Override
+    public Integer getId() {
+        return id;
+    }
 
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getPseudo() {
         return pseudo;
@@ -73,14 +87,15 @@ public class Utilisateur implements Identifiable, Serializable {
         this.mot_de_passe = mot_de_passe;
     }
 
-    @Override
-    public Integer getId() {
-        return id;
+    public boolean getEstActif() {
+        return estActif;
     }
 
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
+    public void setEstActif(boolean estActif) {
+        this.estActif = estActif;
     }
+
+
+
 
 }

@@ -10,19 +10,22 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Options</title>
-        <<link rel="stylesheet" href="<c:url value="/assets/css/form.css" />">
+        <link rel="stylesheet" href="<c:url value="/assets/css/form.css" />">
+        <link rel="stylesheet" href="<c:url value="/assets/css/style.css" />">
+
     </head>
     <body>
         <h1>Que voulez-vous faire?</h1>
         <%@include file="/WEB-INF/jspf/header.jspf" %>
         <section>
+            <div class="ok">${requestScope.change}</div>
             <h3>Changer de mot de passe</h3>
             <form action="<c:url value="/profil/options" />" method="post">
                 <fieldset>
                     <legend>Modifications</legend>
                     <div>
-                        <label for="pwd">Mot de passe actuel</label>
-                        <input type="password" id="mot_de_passe" name="mot_de_passe">
+                        <label for="mdp">Mot de passe actuel</label>
+                        <input type="password" id="mdp" name="mdp">
                         <div class="error">${requestScope.errors.mot_de_passe}</div>
                     </div>
                     <div>
@@ -42,8 +45,8 @@
                 </div>
             </form>
 
-            <<h3>Voulez-vous vraiment supprimer votre compte?</h3>
-            <a href="<c:url value="/profil/suppCompte?id=${profil.id}"/>">Oui je le veux</a>
+            <h3>Voulez-vous vraiment supprimer votre compte?</h3>
+            <a href="<c:url value="/profil/suppCompte?id=${sessionScope.user.id}"/>">Oui je le veux</a>
         </section>
         <%@include file="/WEB-INF/jspf/footer.jspf" %>
     </body>

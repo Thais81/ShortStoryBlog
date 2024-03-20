@@ -29,7 +29,7 @@ public class Connexion extends HttpServlet {
             req.getRequestDispatcher("/WEB-INF/connexion.jsp")
                     .forward(req, resp);
         } else {
-            resp.sendRedirect("/accueil/");
+            resp.sendRedirect("/index/");
         }
 
     }
@@ -40,13 +40,13 @@ public class Connexion extends HttpServlet {
         ConnexionFormChecker fc = new ConnexionFormChecker(req);
         Utilisateur u = fc.checkForm();
         // Si erreur => affichage formulaire sinon affichage page OK
-        if (fc.getErrors().isEmpty()) {
+        if (fc.getErrors().isEmpty() && u.getEstActif()) {
             //resp.sendRedirect("/blog/connected");
             HttpSession session = req.getSession();
             session.setAttribute("user", u);
-            // resp.sendRedirect("/accueil/");
-            req.getRequestDispatcher("/WEB-INF/connected.jsp")
-                    .forward(req, resp);
+            resp.sendRedirect("/index/");
+            //req.getRequestDispatcher("/WEB-INF/connected.jsp")
+            // .forward(req, resp);
         } else {
 
             req.getRequestDispatcher("/WEB-INF/connexion.jsp")

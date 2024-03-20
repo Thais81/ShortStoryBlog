@@ -47,6 +47,7 @@ public class ConnexionFormChecker extends FormChecker<Utilisateur> {
             }
             if (read != null) {
                 obj.setId(read.getId());
+                obj.setEstActif(read.getEstActif());
             }
 
         }

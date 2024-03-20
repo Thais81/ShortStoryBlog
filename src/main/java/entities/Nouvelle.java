@@ -17,7 +17,7 @@ public class Nouvelle implements Identifiable {
     private String descriptif;
     private String contenu;
     private Timestamp date_publication;
-    private Utilisateur id_utilisateur;
+    private Utilisateur id_Utilisateur;
 
     public Integer getId_Nouvelle() {
         return id_Nouvelle;
@@ -58,6 +58,15 @@ public class Nouvelle implements Identifiable {
     public void setDate_publication(Timestamp date_publication) {
         this.date_publication = date_publication;
     }
+
+    public Utilisateur getId_Utilisateur() {
+        return id_Utilisateur;
+    }
+
+    public void setId_Utilisateur(Utilisateur id_Utilisateur) {
+        this.id_Utilisateur = id_Utilisateur;
+    }
+
 
     @Override
     public Integer getId() {

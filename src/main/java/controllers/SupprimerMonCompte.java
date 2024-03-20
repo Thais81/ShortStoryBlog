@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Amelie Solanas Pruvost
  */
-@WebServlet("/profil/supprimermoncompte")
+@WebServlet("/profil/suppCompte")
 public class SupprimerMonCompte extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
