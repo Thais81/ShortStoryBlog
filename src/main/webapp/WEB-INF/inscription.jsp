@@ -12,6 +12,8 @@
         <title>Inscription</title>
         <link rel="stylesheet" href="<c:url value="assets/css/form.css"/>">
         <link rel="stylesheet" href="<c:url value="assets/css/style.css"/>">
+        <link rel="shortcut icon" href="<c:url value="/assets/img/logoLivre.png"/>" type="livre"/>
+
 
 
     </head>

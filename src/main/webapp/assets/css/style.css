@@ -1,6 +1,20 @@
+@font-face{
+    font-family: stopbuck;
+    src: url(Stopbuck.ttf)
+}
+@font-face{
+    font-family: mystic;
+    src: url(BlacKMystique.ttf)
+}
+@font-face{
+    font-family: remora;
+    src: url(KelanoRemora.otf)
+}
+
+
 :root {
-    --primary-color: bisque;
-    --font-color: black;
+    background: linear-gradient(135deg, darkseagreen, palegreen);
+
 }
 
 body {
@@ -8,13 +22,22 @@ body {
 }
 
 header, footer {
-    background-color: var(--font-color);
-    color: var(--primary-color);
+    background-color: azure;
+    font-family: stopbuck;
 }
 
 header {
     display: flex;
     justify-content: space-between;
+    text-align: center;
+}
+.titre{
+    font-family: mystic;
+    font-size: 70px;
+}
+
+legend, h4{
+    font-family: remora;
 }
 
 .right {
@@ -39,25 +62,13 @@ nav > ul > li > a {
 nav > ul > li > a:visited {
     color: var(--primary-color);
 }
-
-article {
-    border: 1px solid var(--font-color);
-    border-radius: 5px;
-    margin-bottom: 1em;
-    padding: 1em;
-}
-
-article h3 {
-    margin: 0 auto;
-}
-
 .under {
     font-size: 0.8em;
     font-style: italic;
     margin: 0;
     margin-bottom: 0.5em;
 }
-
-.more {
-    text-align: end;
+h2{
+    font-family: mystic;
+    font-size: 40px;
 }

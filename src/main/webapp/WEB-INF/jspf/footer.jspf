@@ -8,6 +8,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <link rel="stylesheet" href="/assets/CSS/style.css"/>
-<div>
-    &#169l'équipe_RTL2
-</div>
+<footer>
+    <div>
+        &#169l'équipe_RTL2
+    </div>
+</footer>
