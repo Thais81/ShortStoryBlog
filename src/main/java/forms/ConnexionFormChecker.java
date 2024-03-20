@@ -4,7 +4,7 @@
  */
 package forms;
 
-import controllers.PasswordAuthentication;
+import Helpers.PasswordAuthentication;
 import dao.DAOFactory;
 import dao.UtilisateurDAO;
 import entities.Utilisateur;
