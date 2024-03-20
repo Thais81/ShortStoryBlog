@@ -12,7 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import javax.servlet.http.HttpSession;
 
 /**
@@ -41,12 +40,22 @@ public class Connexion extends HttpServlet {
         Utilisateur u = fc.checkForm();
         // Si erreur => affichage formulaire sinon affichage page OK
         if (fc.getErrors().isEmpty()) {
-            //resp.sendRedirect("/blog/connected");
             HttpSession session = req.getSession();
             session.setAttribute("user", u);
-            // resp.sendRedirect("/accueil/");
-            req.getRequestDispatcher("/WEB-INF/connected.jsp")
-                    .forward(req, resp);
+
+            switch (u.getId()) {
+                case 1:
+                    resp.sendRedirect(req.getRequestURI
+                    "/accueilAdmin");
+                    //req.getRequestDispatcher("/WEB-INF/accueilAdmin.jsp")
+                    //       .forward(req, resp);
+                    break;
+                default:
+                    resp.sendRedirect("/accueil");
+                // req.getRequestDispatcher("/WEB-INF/accueil.jsp")
+                //         .forward(req, resp);
+            }
+
         } else {
 
             req.getRequestDispatcher("/WEB-INF/connexion.jsp")
