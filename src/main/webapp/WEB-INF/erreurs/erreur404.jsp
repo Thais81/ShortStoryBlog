@@ -19,6 +19,7 @@
     </head>
     <body>
         <h1>Erreur 404!</h1>
+        <%@include file="/WEB-INF/jspf/header.jspf" %>
         <div>
             <<img src="<c:url value="/assets/img/erreur404.jpg" />" alt="VincentVega"/>
         </div>

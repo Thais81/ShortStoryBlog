@@ -20,6 +20,7 @@
     </head>
     <body>
         <h1>Erreur 403!</h1>
+        <%@include file="/WEB-INF/jspf/header.jspf" %>
         <div>
             <<img src="<c:url value="/assets/img/erreur403.jpg" />" alt="VincentVega"/>
         </div>

@@ -6,12 +6,11 @@ package entities;
 
 /**
  *
- * @author Caroline Bergé
+ * @author Thaïs GENIN
  */
 public interface Identifiable {
 
     Integer getId();
 
     void setId(Integer id);
-
 }

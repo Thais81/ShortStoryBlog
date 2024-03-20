@@ -4,50 +4,19 @@
  */
 package dao;
 
-import dao.UtilisateurDAO;
-
 /**
  *
  * @author Amelie Solanas Pruvost
  */
 public final class DAOFactory {
 
-    /* private static NouvelleDAO nouvelleDAO;
-    private static VoteDAO voteDAO;
-    private static CommentaireDAO commentaireDAO;*/
-    private static UtilisateurDAO utilisateurDAO;
     private static NouvelleDAO nouvelleDAO;
+//    private static VoteDAO voteDAO;
+    private static CommentaireDAO commentaireDAO;
+    private static UtilisateurDAO utilisateurDAO;
 
-    public DAOFactory() {
+    private DAOFactory() {
 
-    }
-
-    /*public static NouvelleDAO getNouvelleDAO() {
-        if (nouvelleDAO == null) {
-            nouvelleDAO = new NouvelleDAO();
-        }
-        return nouvelleDAO;
-    }
-
-    public static VoteDAO getVoteDAO() {
-        if (voteDAO == null) {
-            voteDAO = new VoteDAO();
-        }
-        return voteDAO;
-    }
-
-    public static CommentaireDAO geCommentaireDAO() {
-        if (commentaireDAO == null) {
-            commentaireDAO = new CommentaireDAO();
-        }
-        return commentaireDAO;
-    }*/
-
-    public static UtilisateurDAO getUtilisateurDAO() {
-        if (utilisateurDAO == null) {
-            utilisateurDAO = new UtilisateurDAO();
-        }
-        return utilisateurDAO;
     }
 
     public static NouvelleDAO getNouvelleDAO() {
@@ -56,5 +25,28 @@ public final class DAOFactory {
         }
         return nouvelleDAO;
     }
+//
+//    public static VoteDAO getVoteDAO() {
+//        if (voteDAO == null) {
+//            voteDAO = new VoteDAO();
+//        }
+//        return voteDAO;
+//    }
+//
+    public static CommentaireDAO getCommentaireDAO() {
+        if (commentaireDAO == null) {
+            commentaireDAO = new CommentaireDAO();
+        }
+        return commentaireDAO;
+
+    }
+
+    public static UtilisateurDAO getUtilisateurDAO() {
+        if (utilisateurDAO == null) {
+            utilisateurDAO = new UtilisateurDAO();
+        }
+        return utilisateurDAO;
+    }
+
 
 }
