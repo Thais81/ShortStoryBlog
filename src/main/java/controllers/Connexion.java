@@ -44,7 +44,7 @@ public class Connexion extends HttpServlet {
             //resp.sendRedirect("/blog/connected");
             HttpSession session = req.getSession();
             session.setAttribute("user", u);
-            resp.sendRedirect("/index/");
+            resp.sendRedirect("/accueil/");
             //req.getRequestDispatcher("/WEB-INF/connected.jsp")
             // .forward(req, resp);
         } else {

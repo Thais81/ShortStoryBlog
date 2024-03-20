@@ -1,0 +1,63 @@
+:root {
+    --primary-color: bisque;
+    --font-color: black;
+}
+
+body {
+    background-color: var(--primary-color);
+}
+
+header, footer {
+    background-color: var(--font-color);
+    color: var(--primary-color);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right {
+    align-self: center;
+    margin: 1em;
+}
+
+nav > ul {
+    display:flex;
+}
+
+nav > ul > li {
+    list-style-type: none;
+    margin: 1em;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+nav > ul > li > a:visited {
+    color: var(--primary-color);
+}
+
+article {
+    border: 1px solid var(--font-color);
+    border-radius: 5px;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+article h3 {
+    margin: 0 auto;
+}
+
+.under {
+    font-size: 0.8em;
+    font-style: italic;
+    margin: 0;
+    margin-bottom: 0.5em;
+}
+
+.more {
+    text-align: end;
+}
