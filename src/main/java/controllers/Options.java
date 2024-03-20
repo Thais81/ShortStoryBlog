@@ -5,6 +5,8 @@
 package controllers;
 
 import dao.DAOFactory;
+import entities.Utilisateur;
+import forms.ChangerMDPFormChecker;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,13 +30,12 @@ public class Options extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try {
-            int id = Integer.valueOf(req.getParameter("id"));
-            DAOFactory.getUtilisateurDAO().delete(id);
-            resp.sendRedirect(req.getContextPath() + "/options/profil");
-        } catch (NumberFormatException ex) {
-            resp.sendError(403);
+        ChangerMDPFormChecker fc = new ChangerMDPFormChecker(req);
+        Utilisateur obj = fc.checkForm();
+        if (fc.getErrors().isEmpty()) {
+            req.setAttribute("change", "Votre mot de passe a bien été modifié!");
         }
+        req.getRequestDispatcher("/WEB-INF/options.jsp").forward(req, resp);
     }
 
 }
