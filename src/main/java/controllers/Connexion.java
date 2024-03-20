@@ -28,7 +28,7 @@ public class Connexion extends HttpServlet {
             req.getRequestDispatcher("/WEB-INF/connexion.jsp")
                     .forward(req, resp);
         } else {
-            resp.sendRedirect("/accueil/");
+            resp.sendRedirect(req.getContextPath() + "/accueil/");
         }
 
     }
@@ -45,13 +45,12 @@ public class Connexion extends HttpServlet {
 
             switch (u.getId()) {
                 case 1:
-                    resp.sendRedirect(req.getRequestURI
-                    "/accueilAdmin");
-                    //req.getRequestDispatcher("/WEB-INF/accueilAdmin.jsp")
-                    //       .forward(req, resp);
+
+                    req.getRequestDispatcher("/WEB-INF/accueilAdmin.jsp")
+                            .forward(req, resp);
                     break;
                 default:
-                    resp.sendRedirect("/accueil");
+                    resp.sendRedirect(req.getContextPath() + "/accueil");
                 // req.getRequestDispatcher("/WEB-INF/accueil.jsp")
                 //         .forward(req, resp);
             }
