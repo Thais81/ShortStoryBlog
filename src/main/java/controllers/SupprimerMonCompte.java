@@ -24,7 +24,7 @@ public class SupprimerMonCompte extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            int id = Integer.valueOf(req.getParameter("id_utilisateur"));
+            int id = Integer.valueOf(req.getParameter("id"));
             DAOFactory.getUtilisateurDAO().delete(id);
             resp.sendRedirect(req.getContextPath() + "/profil/options");
         } catch (NumberFormatException ex) {

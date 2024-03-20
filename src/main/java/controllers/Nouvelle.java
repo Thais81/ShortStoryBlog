@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thaïs GENIN
  */
-@WebServlet("/creer_nouvelle")
+@WebServlet("/createArticle")
 public class Nouvelle extends HttpServlet {
 
         @Override

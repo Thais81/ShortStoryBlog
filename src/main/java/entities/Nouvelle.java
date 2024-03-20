@@ -5,6 +5,7 @@
 package entities;
 
 import java.sql.Timestamp;
+import java.util.Objects;
 
 /**
  *
@@ -17,7 +18,7 @@ public class Nouvelle implements Identifiable {
     private String descriptif;
     private String contenu;
     private Timestamp date_publication;
-    private Utilisateur utilisateur;
+    private Utilisateur id_Utilisateur;
 
     public Integer getId_Nouvelle() {
         return id_Nouvelle;
@@ -65,16 +66,72 @@ public class Nouvelle implements Identifiable {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.id_Nouvelle);
+        hash = 79 * hash + Objects.hashCode(this.titre);
+        hash = 79 * hash + Objects.hashCode(this.descriptif);
+        hash = 79 * hash + Objects.hashCode(this.contenu);
+        hash = 79 * hash + Objects.hashCode(this.date_publication);
+        hash = 79 * hash + Objects.hashCode(this.id_Utilisateur);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Nouvelle other = (Nouvelle) obj;
+        if (!Objects.equals(this.titre, other.titre)) {
+            return false;
+        }
+        if (!Objects.equals(this.descriptif, other.descriptif)) {
+            return false;
+        }
+        if (!Objects.equals(this.contenu, other.contenu)) {
+            return false;
+        }
+        if (!Objects.equals(this.id_Nouvelle, other.id_Nouvelle)) {
+            return false;
+        }
+        if (!Objects.equals(this.date_publication, other.date_publication)) {
+            return false;
+        }
+        return Objects.equals(this.id_Utilisateur, other.id_Utilisateur);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Nouvelle{");
+        sb.append("id_Nouvelle=").append(id_Nouvelle);
+        sb.append(", titre=").append(titre);
+        sb.append(", descriptif=").append(descriptif);
+        sb.append(", contenu=").append(contenu);
+        sb.append(", date_publication=").append(date_publication);
+        sb.append(", id_Utilisateur=").append(id_Utilisateur);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    @Override
     public void setId(Integer id) {
         this.id_Nouvelle = id;
     }
 
-    public Utilisateur getUtilisateur() {
-        return utilisateur;
+    public Utilisateur getId_Utilisateur() {
+        return id_Utilisateur;
     }
 
-    public void setUtilisateur(Utilisateur utilisateur) {
-        this.utilisateur = utilisateur;
+    public void setId_Utilisateur(Utilisateur id_Utilisateur) {
+        this.id_Utilisateur = id_Utilisateur;
     }
 
 }

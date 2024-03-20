@@ -12,18 +12,23 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+    <%@include file="/WEB-INF/jspf/header.jspf" %>
     <body>
-                <h2>Voici la liste nouvelles :</h2>
+        <h2>Voici la liste nouvelles :</h2>
 
         <c:forEach var="nouvelle" items="${requestScope.nouvelles}">
             <c:if test="${utilisateur.id_Utilisateur !=1}">
                 <fieldset>
                     <legend><h3><c:out value="${nouvelle.pseudo}"/></h3></legend>
                     <div><c:out value="${nouvelle.pseudo}"/></div>
-                    <div>Titre de la nouvelle : ${nouvelle.titre}</div><br>
+                    <div><c:out value="Titre de la nouvelle : ${nouvelle.titre}"/></div>
+                    <div><c:out value="Descriptif de la nouvelle : ${nouvelle.desriptif}"/></div>
+                    <div><c:out value="Descriptif de la nouvelle : ${nouvelle.desriptif}"/></div>
+                    <div>Descriptif de la nouvelle : ${nouvelle.desriptif}</div><br>
                     <div><c:out value="Mot de passe de l'utilisateur : ${person.password}"/></div>
                 </fieldset>
             </c:if>
         </c:forEach>
     </body>
+    <%@include file="/WEB-INF/jspf/footer.jspf" %>
 </html>
