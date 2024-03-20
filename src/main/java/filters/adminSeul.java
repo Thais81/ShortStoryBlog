@@ -4,6 +4,7 @@
  */
 package filters;
 
+import entities.Utilisateur;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -29,13 +30,13 @@ public class adminSeul implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-//        HttpServletRequest req = (HttpServletRequest) request;
-//        HttpSession session = req.getSession(false);
-//        if (session == null || session.getAttribute("user") == null || ((Utilisateur) session.getAttribute("user")).getId() != 1) {
-//            ((HttpServletResponse) response).sendError(403);
-//        } else {
-//            chain.doFilter(request, response);
-//        }
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("utilisateur") == null || ((Utilisateur) session.getAttribute("utilisateur")).getId() != 1) {
+            ((HttpServletResponse) response).sendError(403);
+        } else {
+            chain.doFilter(request, response);
+        }
     }
 
     @Override

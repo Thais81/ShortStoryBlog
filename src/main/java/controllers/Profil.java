@@ -30,7 +30,7 @@ public class Profil extends HttpServlet {
             idUtilisateur = user.getId();
         }
 
-        //req.setAttribute("nouvelles", DAOFactory.getNouvelleDAO().listNouvellesUtilisateur(idUtilisateur));
+        req.setAttribute("nouvelles", DAOFactory.getNouvelleDAO().listNouvellesUtilisateur(idUtilisateur));
         req.getRequestDispatcher("/WEB-INF/profil.jsp").forward(req, resp);
     }
 

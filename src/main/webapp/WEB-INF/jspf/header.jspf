@@ -1,35 +1,37 @@
 <%--
     Document   : header
     Created on : 19 mars 2024, 09:23:30
-    Author     : Thais GENIN
+    Author     : Thaïs GENIN
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page pageEncoding="UTF-8" %>
-<<link rel="stylesheet" href="/assets/CSS/style.css"/>
-<header>
-    <div>
-        <h1>RTL2: le blog des nouvelles</h1>
-        <nav>
-            <ul>
-                <li><a href="<c:url value="/accueil"/>">Accueil</a></li>
-                <c:if test="${empty sessionScope.user}">
-                    <li><a href="<c:url value="/connexion"/>">Se connecter</a></li>
-                    <li><a href="<c:url value="/inscription"/>">S'inscrire</a></li>
-                </c:if>
-                        <c:if test="${!empty sessionScope.user}">
+<link rel="stylesheet" href="<c:url value="/assets/css/style.css"/>">
+<link rel="stylesheet" href="<c:url value="/assets/css/form.css"/>">
+<link rel="shortcut icon" href="<c:url value="/assets/img/logoLivre.png"/>" type="livre"/>
 
-                        <li><a href="<c:url value="/deconnexion"/>">Se déconnecter</a></li>
-                        <li><a href="<c:url value="/profil"/>">Profil</a></li>
-                        <li><a href="<c:url value="/profil/creer_nouvelle"/>">Créer Nouvelle</a></li>
-                        <li><a href="<c:url value="/profil/options"/>">Options</a></li>
-                    </c:if>
-            </ul>
-        </nav>
-        <div>
-            <c:if test="${!empty sessionScope.user}">
-                Bienvenue ${sessionScope.user.pseudo}
-            </c:if>
-        </div>
+<header>
+    <h1>RTL2: le meilleur de vos nouvelles</h1>
+    <link rel="shortcut icon" href="<c:url value="/assets/img/logoLivre.png"/>" type="livre"/>
+
+    <nav>
+        <ul>
+            <li><a href="<c:url value="/accueil"/>">Accueil </a></li>
+                <c:if test="${empty sessionScope.user}">
+                <li><a href="<c:url value="/connexion"/>">Se connecter</a></li>
+                <li><a href="<c:url value="/inscription"/>">S'inscrire</a></li>
+                </c:if>
+                <c:if test="${!empty sessionScope.user}">
+                <li><a href="<c:url value="/deconnexion"/>">Déconnexion</a></li>
+                <li><a href="<c:url value="/profil"/>">Profil</a></li>
+                <li><a href="<c:url value="/profil/creer_nouvelle"/>">Créer</a></li>
+                <li><a href="<c:url value="/profil/options"/>">Options</a></li>
+                </c:if>
+        </ul>
+    </nav>
+    <div>
+        <c:if test="${!empty sessionScope.user}">
+            Bienvenue ${sessionScope.user.pseudo}
+        </c:if>
     </div>
 </header>

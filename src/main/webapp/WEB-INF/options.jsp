@@ -12,6 +12,8 @@
         <title>Options</title>
         <link rel="stylesheet" href="<c:url value="/assets/css/form.css" />">
         <link rel="stylesheet" href="<c:url value="/assets/css/style.css" />">
+        <link rel="shortcut icon" href="<c:url value="/assets/img/logoLivre.png"/>" type="livre"/>
+
 
     </head>
     <body>
@@ -46,7 +48,7 @@
             </form>
 
             <h3>Voulez-vous vraiment supprimer votre compte?</h3>
-            <a href="<c:url value="/profil/suppCompte?id=${sessionScope.user.id}"/>">Oui je le veux</a>
+            <a href="<c:url value="/profil/suppcompte?id=${sessionScope.user.id}"/>">Oui je le veux</a>
         </section>
         <%@include file="/WEB-INF/jspf/footer.jspf" %>
     </body>
