@@ -18,7 +18,7 @@ import java.util.Collection;
 public class NouvelleDAO extends DAO<Nouvelle> {
 
     public NouvelleDAO() {
-        super("nouvelle");
+        super("Nouvelle");
     }
 
     @Override
@@ -35,7 +35,7 @@ public class NouvelleDAO extends DAO<Nouvelle> {
 
     @Override
     public void create(Nouvelle nouv) {
-        String sql = "INSERT INTO " + table + " (titre, descriptif, contenu, date_publication, ) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO " + table + " (titre, descriptif, contenu, date_publication, id_Utilisateur) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement pstmt = connexion.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, nouv.getTitre());
             pstmt.setString(2, nouv.getDescriptif());
@@ -56,16 +56,14 @@ public class NouvelleDAO extends DAO<Nouvelle> {
 
     @Override
     protected void update(Nouvelle nouv) {
-        String sql = "UPDATE " + table + " SET id_Nouvelle=?,"
-                + "titre=?," + "descriptif=?" + "contenu=?," + "date_publiction=?,"
-                + "pseudo=?, WHERE id_Utilisateur" + table + "=?";
+        String sql = "UPDATE " + table + " SET titre=?, descriptif=?, contenu=?, date_publication=?, utilisateur=? WHERE id_Nouvelle=?";
         try (PreparedStatement pstmt = connexion.prepareStatement(sql)) {
-            pstmt.setInt(1, nouv.getId());
-            pstmt.setString(2, nouv.getTitre());
-            pstmt.setString(3, nouv.getDescriptif());
-            pstmt.setString(4, nouv.getContenu());
-            pstmt.setTimestamp(5, nouv.getDate_publication());
-            pstmt.setInt(6, nouv.getUtilisateur().getId());
+            pstmt.setString(1, nouv.getTitre());
+            pstmt.setString(2, nouv.getDescriptif());
+            pstmt.setString(3, nouv.getContenu());
+            pstmt.setTimestamp(4, nouv.getDate_publication());
+            pstmt.setInt(5, nouv.getUtilisateur().getId());
+            pstmt.setInt(6, nouv.getId());
 
             pstmt.executeUpdate();
         } catch (SQLException ex) {
