@@ -76,7 +76,7 @@ public class NouvelleDAO extends DAO<Nouvelle> {
     public Collection<Nouvelle> listLastN(int n) {
         ArrayList<Nouvelle> list = new ArrayList<>();
         String sql = "SELECT * FROM " + table + " ORDER BY date_publication DESC LIMIT ?";
-        try (PreparedStatement pstmt = connexion.prepareStatement(sql)) {
+        try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
             pstmt.setInt(1, n);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
