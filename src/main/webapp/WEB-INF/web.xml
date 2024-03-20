@@ -18,7 +18,7 @@
         <location>/WEB-INF/errors/error403.jsp</location>
     </error-page>
     <welcome-file-list>
-        <welcome-file>index</welcome-file>
+        <welcome-file>accueil</welcome-file>
     </welcome-file-list>
 
 </web-app>

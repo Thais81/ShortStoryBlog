@@ -26,6 +26,7 @@ public class NouvelleDAO extends DAO<Nouvelle> {
         Nouvelle nouv = new Nouvelle();
         nouv.setId_Nouvelle(rs.getInt("id_Nouvelle"));
         nouv.setTitre(rs.getString("titre"));
+
         nouv.setContenu(rs.getString("contenu"));
         nouv.setDescriptif(rs.getString("descriptif"));
         nouv.setDate_publication(rs.getTimestamp("date_publication"));
@@ -88,21 +89,7 @@ public class NouvelleDAO extends DAO<Nouvelle> {
 
     }
 
-    public Collection<Nouvelle> listNouvellesUtilisateur(int idUtilisateur) {
-        ArrayList<Nouvelle> list = new ArrayList<>();
-        String sql = "SELECT * FROM " + table + " WHERE id_Utilisateur=?";
-        try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
-            pstmt.setInt(1, idUtilisateur);
-            ResultSet rs = pstmt.executeQuery();
-            while (rs.next()) {
-                Nouvelle obj = createObject(rs);
-                list.add(obj);
-            }
-        } catch (SQLException ex) {
-            System.err.println("Erreur lors du listage : " + ex.getMessage());
-        }
-        return list;
 
-    }
+
 
 }
