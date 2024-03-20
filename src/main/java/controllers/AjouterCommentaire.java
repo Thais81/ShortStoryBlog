@@ -1,5 +1,6 @@
 package controllers;
 
+import dao.DAOFactory;
 import entities.Commentaire;
 import forms.CommentaireFormChecker;
 import java.io.IOException;
@@ -30,12 +31,11 @@ public class AjouterCommentaire extends HttpServlet {
         CommentaireFormChecker cfc = new CommentaireFormChecker(req);
         Commentaire com = cfc.checkForm();
         if (cfc.getErrors().isEmpty()) {
-            req.setAttribute("Msg", "Votre commentaire à bien été ajouté!");
-            resp.sendRedirect(req.getContextPath() + "/");
+            req.setAttribute("msg", "Votre commentaire a bien été ajouté!");
         } else {
-            req.setAttribute("Msg", "Votre commentaire n'a pas pu être ajouté!");
-            resp.sendRedirect(req.getContextPath() + "/");
+            req.setAttribute("msgerror", "Votre commentaire n'a pas pu être ajouté!");
         }
+        req.getRequestDispatcher("/WEB-INF/nouvelle.jsp").forward(req, resp);
     }
 
 }

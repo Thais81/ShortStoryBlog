@@ -19,15 +19,18 @@
         <main>
 
             <h1><c:out value="${nouvelle.titre}"/></h1>
-            <div class="under">&Eacute;crit par <c:out value="${sessionScope.user.pseudo}}"/> le ${nouvelle.date_publication}</div>
+            <div class="under">&Eacute;crit par <c:out value="${sessionScope.user.pseudo}"/> le ${nouvelle.date_publication}</div>
             <div><c:out value="${nouvelle.contenu}"/></div>
+            }
 
             <c:if test="${sessionScope.user != null}">
 
                 <div>
-                <form action="nouvelle.jsp" method="post">
-                    <label for="commentaire">Commentaire :</label><br>
-                    <div class="error">${requestScope.errors.contenu}</div>
+                <form action="ajoutercommentaire" method="post">
+                    <div>${requestScope.msg}</div><br>
+                    <div>${requestScope.msgerror}</div><br>
+                    <div>${requestScope.errors.contenu}</div><br>
+                    <label for="commentaire">Ajouter un commentaire :</label><br>
                     <textarea id="contenu" name="contenu" rows="4" cols="50"></textarea><br>
                     <input type="submit" value="Envoyer">
                     <input type="reset" value="Annuler" onclick="history.back()">

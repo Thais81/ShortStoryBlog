@@ -6,6 +6,10 @@ package forms;
 
 import dao.DAOFactory;
 import entities.Commentaire;
+import entities.Nouvelle;
+import entities.Utilisateur;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -24,11 +28,21 @@ public class CommentaireFormChecker extends FormChecker<Commentaire> {
 
         // hydrater le bean avec les données du formulaire
         String contenu = request.getParameter("contenu");
+        Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("user");
 
+        int idNouvelle = Integer.parseInt(request.getParameter("nouvelle"));
+        Nouvelle nouvelle = DAOFactory.getNouvelleDAO().read(idNouvelle);
+
+        //valeur Bean
+        obj.setId_Utilisateur(utilisateur);
+        obj.setDate_publication(Timestamp.valueOf(LocalDateTime.now()));
+        obj.setId_Nouvelle(nouvelle);
+        obj.setContenu(contenu);
         // Vérifier les données du formulaire
         //Vérifier si les champs sont remplis
-        if (contenu.trim().length() == 0) {
-            setError("contenu", "ce champ doit etre rempli.");
+        if (contenu == null || contenu.trim().length() == 0) {
+            setError("contenu", "ce champ doit être rempli.");
+        } else {
         }
 
         if (errors.isEmpty()) {
