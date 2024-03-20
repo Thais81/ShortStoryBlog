@@ -7,7 +7,6 @@ package controllers;
 import dao.DAOFactory;
 import entities.Utilisateur;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

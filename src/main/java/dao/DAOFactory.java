@@ -11,10 +11,9 @@ package dao;
 public final class DAOFactory {
 
     private static NouvelleDAO nouvelleDAO;
-//    private static VoteDAO voteDAO;   
-//    private static CommentaireDAO commentaireDAO;
+//    private static VoteDAO voteDAO;
+    private static CommentaireDAO commentaireDAO;
     private static UtilisateurDAO utilisateurDAO;
-
 
     private DAOFactory() {
 
@@ -34,13 +33,13 @@ public final class DAOFactory {
 //        return voteDAO;
 //    }
 //
-//    public static CommentaireDAO getCommentaireDAO() {
-//        if (commentaireDAO == null) {
-//            commentaireDAO = new CommentaireDAO();
-//        }
-//        return commentaireDAO;
-//
-//    }
+    public static CommentaireDAO getCommentaireDAO() {
+        if (commentaireDAO == null) {
+            commentaireDAO = new CommentaireDAO();
+        }
+        return commentaireDAO;
+
+    }
 
     public static UtilisateurDAO getUtilisateurDAO() {
         if (utilisateurDAO == null) {
@@ -48,5 +47,6 @@ public final class DAOFactory {
         }
         return utilisateurDAO;
     }
+
 
 }
