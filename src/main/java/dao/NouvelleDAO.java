@@ -87,5 +87,4 @@ public class NouvelleDAO extends DAO<Nouvelle> {
         return list;
 
     }
-
 }
