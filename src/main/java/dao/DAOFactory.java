@@ -11,7 +11,7 @@ package dao;
 public final class DAOFactory {
 
     private static NouvelleDAO nouvelleDAO;
-//    private static VoteDAO voteDAO;
+//    private static VoteDAO voteDAO;   
 //    private static CommentaireDAO commentaireDAO;
     private static UtilisateurDAO utilisateurDAO;
 
