@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Amelie Solanas Pruvost
  */
-@WebServlet("/profil/suppCompte")
+@WebServlet("/profil/suppcompte")
 public class SupprimerMonCompte extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -24,9 +24,9 @@ public class SupprimerMonCompte extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            int id = Integer.valueOf(req.getParameter("id_utilisateur"));
+            int id = Integer.valueOf(req.getParameter("id"));
             DAOFactory.getUtilisateurDAO().delete(id);
-            resp.sendRedirect(req.getContextPath() + "/profil/options");
+            resp.sendRedirect(req.getContextPath() + "/accueil");
         } catch (NumberFormatException ex) {
             resp.sendError(403);
         }

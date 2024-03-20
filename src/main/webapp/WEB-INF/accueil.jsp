@@ -20,7 +20,7 @@
                         <h3><c:out value="${nouvelle.titre}"/></h3>
                         <div> Écrit par <c:out value="${nouvelle.utilisateur.pseudo}"/>
                             le <c:out value="${nouvelle.date_publication}"/></div>
-                        <div><c:out value="${nouvelle.contenu}"/></div>
+                        <div><c:out value="${nouvelle.descriptif}"/></div>
                         <div><a href="<c:url value="/nouvelle?id=${nouvelle.id_Nouvelle}"/>">Plus...</a></div>
 
                         <p><c:out value="${nouvelle.contenu}"/></p>

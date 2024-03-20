@@ -29,7 +29,7 @@ public class Connexion extends HttpServlet {
             req.getRequestDispatcher("/WEB-INF/connexion.jsp")
                     .forward(req, resp);
         } else {
-            resp.sendRedirect("/accueil/");
+            resp.sendRedirect(req.getContextPath() + "/");;
         }
 
     }
@@ -44,7 +44,7 @@ public class Connexion extends HttpServlet {
             //resp.sendRedirect("/blog/connected");
             HttpSession session = req.getSession();
             session.setAttribute("user", u);
-            resp.sendRedirect("/accueil/");
+            resp.sendRedirect(req.getContextPath() + "/");
             //req.getRequestDispatcher("/WEB-INF/connected.jsp")
             // .forward(req, resp);
         } else {
