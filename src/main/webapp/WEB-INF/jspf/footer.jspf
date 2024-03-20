@@ -1,0 +1,13 @@
+<%--
+    Document   : footer
+    Created on : 19 mars 2024, 09:22:46
+    Author     : Thaïs GENIN
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<<link rel="stylesheet" href="/assets/CSS/style.css"/>
+<div>
+    &#169 = l'équipe_RTL2
+</div>
