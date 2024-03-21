@@ -37,7 +37,9 @@
 
             </c:if>
 
-
+            <div>${param.msg}</div><br>
+            <div>${requestScope.errors.contenu}</div><br>
+            
             <c:if test="${sessionScope.user != null}">
                 <div>
                     <form action="nouvelle.jsp" method="post">
