@@ -12,7 +12,7 @@
         <h1>RTL2: le blog des nouvelles</h1>
         <nav>
             <ul>
-                <li><a href="<c:url value="/accueil"/>"Accueil</a></li>
+                <li><a href="<c:url value="/accueil"/>">Accueil</a></li>
                 <c:if test="${empty sessionScope.user}">
                     <li><a href="<c:url value="/connexion"/>">Se connecter</a></li>
                     <li><a href="<c:url value="/inscription"/>">S'inscrire</a></li>
