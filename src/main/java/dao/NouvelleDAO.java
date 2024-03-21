@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -89,5 +90,74 @@ public class NouvelleDAO extends DAO<Nouvelle> {
         return list;
 
     }
+    public Collection<Nouvelle> listNouvellesUtilisateur(int idUtilisateur) {
+        ArrayList<Nouvelle> list = new ArrayList<>();
+        String sql = "SELECT * FROM " + table + " WHERE id_Utilisateur=?";
+        try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
+            pstmt.setInt(1, idUtilisateur);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Nouvelle obj = createObject(rs);
+                list.add(obj);
+            }
+        } catch (SQLException ex) {
+            System.err.println("Erreur lors du listage : " + ex.getMessage());
+        }
+        return list;
 
-}
+    }
+
+    public List<Nouvelle> VotesNouvelle() {
+        List<Nouvelle> nouvelles = new ArrayList<>();
+        String sql = "SELECT Nouvelle.*, COUNT(Vote.id_Nouvelle) AS nombre_votes "
+                + "FROM Nouvelle "
+                + "LEFT JOIN Vote ON Nouvelle.id = Vote.id_Nouvelle "
+                + "GROUP BY Nouvelle.id";
+        try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Nouvelle nouvelle = createObject(rs);
+                nouvelles.add(nouvelle);
+            }
+        } catch (SQLException ex) {
+            System.err.println("Erreur lors de la récupération des nouvelles avec votes : " + ex.getMessage());
+        }
+        return nouvelles;
+    }
+
+    public List<Nouvelle> getNouvellesWithScores() {
+        List<Nouvelle> nouvelles = new ArrayList<>();
+        String sql = "SELECT Nouvelle.*, COUNT(Vote.id_Nouvelle) AS nombre_votes "
+                + "FROM Nouvelle "
+                + "LEFT JOIN Vote ON Nouvelle.id_Nouvelle = Vote.id_Nouvelle "
+                + "GROUP BY Nouvelle.id_Nouvelle";
+        try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Nouvelle nouvelle = createObject(rs);
+                nouvelles.add(nouvelle);
+            }
+        } catch (SQLException ex) {
+            System.err.println("Erreur lors de la récupération des nouvelles avec votes : " + ex.getMessage());
+        }
+        return nouvelles;
+    }
+
+//    public Collection<Nouvelle> listNouvellesUtilisateur(int idUtilisateur) {
+//        ArrayList<Nouvelle> list = new ArrayList<>();
+//        String sql = "SELECT * FROM " + table + " WHERE id_Utilisateur=?";
+//        try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
+//            pstmt.setInt(1, idUtilisateur);
+//            ResultSet rs = pstmt.executeQuery();
+//            while (rs.next()) {
+//                Nouvelle obj = createObject(rs);
+//                list.add(obj);
+//            }
+//        } catch (SQLException ex) {
+//            System.err.println("Erreur lors du listage : " + ex.getMessage());
+//        }
+//        return list;
+
+    }
+
+

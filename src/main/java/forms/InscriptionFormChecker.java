@@ -4,6 +4,7 @@
  */
 package forms;
 
+import Helpers.PasswordAuthentication;
 import dao.DAOFactory;
 import entities.Utilisateur;
 import javax.servlet.http.HttpServletRequest;
@@ -36,15 +37,18 @@ public class InscriptionFormChecker extends FormChecker<Utilisateur> {
         // Vérifier les données du formulaire
 
         if (pseudo.trim().length() < MIN_LOGIN_LENGTH) {
-            setError("pseudo", "ce champ doit etre rempli.");
+            setError("pseudo", "Le pseudo doit contenir au minimum 5 caractères avant '@'.");
+        } else if (!pseudo.contains("@")) {
+            setError("pseudo", "Le pseudo doit contenir un '@', doit etre une adresse mail .");
         }
+
         if (mot_de_passe.length() < MIN_PWD_LENGTH) {
-            setError("mot_de_passe", "ce champ doit etre rempli.");
+            setError("mot_de_passe", "ce champ doit etre rempli, doit contenir au minimum 12 caractères.");
         }
 
         // Vérifier si le champ "verif" correspond au champ "password"
         if (verif.trim().length() == 0) {
-            setError("verif", "ce champ doit etre rempli.");
+            setError("verif", "ce champ doit correspondre au mot de passe .");
 
         }
 
@@ -58,6 +62,8 @@ public class InscriptionFormChecker extends FormChecker<Utilisateur> {
             if (read != null) {
                 setError("pseudo", "Cet utilisateur existe. Veuillez vous connecter");
             } else {
+                PasswordAuthentication pa = new PasswordAuthentication();
+                obj.setMot_de_passe(pa.hash(mot_de_passe.toCharArray()));
                 DAOFactory.getUtilisateurDAO().save(obj);
             }
         }

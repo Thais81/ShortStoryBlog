@@ -70,7 +70,7 @@ public class CommentaireDAO extends DAO<Commentaire> {
     
         public Collection<Commentaire> listById_Nouvelle(int id_Nouvelle) {
         ArrayList<Commentaire> list = new ArrayList<>();
-        String sql = "SELECT * FROM " + table + "ORDER BY date_publication DESC LIMIT WHERE id_" + table + "=?";
+        String sql = "SELECT * FROM " + table + " WHERE id_Nouvelle = ? ORDER BY date_publication DESC";
         try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
             pstmt.setInt(1, id_Nouvelle);
             ResultSet rs = pstmt.executeQuery();

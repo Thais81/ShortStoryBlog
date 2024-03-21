@@ -6,10 +6,10 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page pageEncoding="UTF-8" %>
-<<link rel="stylesheet" href="/assets/CSS/style.css"/>
+<link rel="stylesheet" href="/assets/CSS/style.css"/>
 <header>
     <div>
-        <h1>RTL2: le blog des nouvelles</h1>
+        <h1><em>RTL2: le blog des nouvelles</em></h1>
         <nav>
             <ul>
                 <li><a href="<c:url value="/accueil"/>">Accueil</a></li>
@@ -18,10 +18,11 @@
                     <li><a href="<c:url value="/inscription"/>">S'inscrire</a></li>
                 </c:if>
                         <c:if test="${!empty sessionScope.user}">
+
                         <li><a href="<c:url value="/deconnexion"/>">Se déconnecter</a></li>
                         <li><a href="<c:url value="/profil"/>">Profil</a></li>
-                    <li><a href="<c:url value="/profil/creer_nouvelle"/>">Crï¿½er</a></li>
-                    <li><a href="<c:url value="/profil/options"/>">Options</a></li>
+                        <li><a href="<c:url value="/profil/creer_nouvelle"/>">Créer Nouvelle</a></li>
+                        <li><a href="<c:url value="/profil/options"/>">Options</a></li>
                     </c:if>
             </ul>
         </nav>

@@ -1,6 +1,6 @@
 package controllers;
 
-import dao.DAOFactory;
+
 import entities.Commentaire;
 import forms.CommentaireFormChecker;
 import java.io.IOException;
