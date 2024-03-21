@@ -18,7 +18,8 @@
         <%@include file="/WEB-INF/jspf/header.jspf" %>
         <main>
 
-            <h1><c:out value="${nouvelle.titre}"/></h1>
+            <h1><c:out value="${nouvelle.titre}"/></h1><br>
+            <div><c:out value="${nouvelle.descriptif}"/></div><br>
             <div><c:out value="${nouvelle.contenu}"/></div><br>
             <div>&Eacute;crit par <c:out value="${nouvelle.id_Utilisateur.pseudo}"/> le ${nouvelle.date_publication}</div>
 
