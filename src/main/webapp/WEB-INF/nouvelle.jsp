@@ -35,7 +35,7 @@
 
             </c:if>
 
-            <div>${requestScope.msg}</div><br>
+            <div>${param.msg}</div><br>
             <div>${requestScope.errors.contenu}</div><br>
             
             <c:if test="${sessionScope.user != null}">
