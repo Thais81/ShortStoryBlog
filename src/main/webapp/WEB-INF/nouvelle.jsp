@@ -32,17 +32,16 @@
                         <button type="submit" name="qualite" value="negatif">Pouce en bas</button>
                     </form>
                 </div>
-                        
+
             </c:if>
 
-
+            <div>${requestScope.msg}</div><br>
+            <div>${requestScope.errors.contenu}</div><br>
+            
             <c:if test="${sessionScope.user != null}">
                 <div>
-                    <form action="ajoutercommentaire" method="post">
+                    <form action="<c:url value="/nouvelle?id=${requestScope.nouvelle.id_Nouvelle}"/>" method="post">
                         <input type="hidden" name="id_nouvelle" value="${nouvelle.id_Nouvelle}">
-                        <div>${requestScope.msg}</div><br>
-                        <div>${requestScope.msgerror}</div><br>
-                        <div>${requestScope.errors.contenu}</div><br>
                         <label for="commentaire">Ajouter un commentaire :</label><br>
                         <textarea id="contenu" name="contenu" rows="4" cols="50"></textarea><br>
                         <input type="submit" value="Envoyer">
@@ -59,6 +58,7 @@
                 <article>
                     <div class="under">&Eacute;crit par ${commentaire.id_Utilisateur.pseudo} le ${commentaire.date_publication}</div>
                     <div>${commentaire.contenu}</div>
+                    <button>signaler</button>
                 </article>
             </c:forEach>
 
