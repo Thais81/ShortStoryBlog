@@ -18,13 +18,16 @@
     <body>
         <%@include file="/WEB-INF/jspf/header.jspf" %>
 
-        <h1>Veuillez entrer vos informations pour l'inscription</h1>
+        <h2>Veuillez entrer vos informations pour l'inscription</h2>
+        <h2>Entre dans la secte, misérable insecte!</h2>
         <div>${requestScope.errorMsg}</div>
 
         <form action="inscription" method="POST">
             <fieldset>
                 <legend>Informations d'inscription</legend>
+                <legend>Par ici les infos --></legend>
                 <div>
+
                     <label for="pseudo">Pseudo</label>
                     <input id="pseudo" name="pseudo" type="text" value="${requestScope.bean.pseudo}"><br>
                     <span class="error">${requestScope.errors.pseudo}</span>

@@ -25,8 +25,11 @@
             <div>
                 <h2>Les dix dernières nouvelles:</h2>
                 <c:forEach var="nouvelle" items="${requestScope.nouvelles}">
-                    <article>
-                        <h3><c:out value="${nouvelle.titre}"/></h3>
+                    <fieldset>
+                        <legend> <h3><c:out value="${nouvelle.titre}"/></h3></legend>
+
+                        <!--<article>-->
+                        <!--<h3><c:out value="${nouvelle.titre}"/></h3>-->
                         <h4><c:out value="${nouvelle.descriptif}"/></h4>
                         <div><c:out value="${nouvelle.contenu}"/></div>
 
@@ -44,7 +47,8 @@
                         </c:choose>
 
 
-                    </article>
+                                <!--</article>-->
+                    </fieldset>
 
 
                     <div>

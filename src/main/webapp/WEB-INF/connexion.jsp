@@ -18,7 +18,7 @@
     <body>
         <%@include file="/WEB-INF/jspf/header.jspf" %>
 
-        <h1>Veuillez entrer vos paramètres de connexion</h1>
+        <h2>Veuillez entrer vos paramètres de connexion</h2>
         <div>${requestScope.errorMsg}</div>
 
         <form action="connexion" method="POST">
