@@ -35,7 +35,7 @@ public class CommentaireFormChecker extends FormChecker<Commentaire> {
         //valeur Bean
         obj.setId_Utilisateur(utilisateur);
         obj.setDate_publication(Timestamp.valueOf(LocalDateTime.now()));
-        obj.setId_Nouvelle(Integer.valueOf(request.getParameter()));
+       // obj.setId_Nouvelle(Integer.valueOf(request.getParameter()));
         obj.setContenu(contenu);
         // Vérifier les données du formulaire
         //Vérifier si les champs sont remplis
