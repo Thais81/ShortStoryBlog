@@ -33,7 +33,6 @@ public class utf8Encoding implements Filter {
     ) throws IOException, ServletException {
         // Le travail effectué avant d'arriver au contrôleur
         request.setCharacterEncoding(StandardCharsets.UTF_8.toString());
-        // Appel du filtre suivant
         chain.doFilter(request, response);
     }
 

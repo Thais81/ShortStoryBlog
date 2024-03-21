@@ -30,27 +30,8 @@ public class Profil extends HttpServlet {
             idUtilisateur = user.getId();
         }
 
-        //req.setAttribute("nouvelles", DAOFactory.getNouvelleDAO().listNouvellesUtilisateur(idUtilisateur));
+        req.setAttribute("nouvelles", DAOFactory.getNouvelleDAO().listNouvellesUtilisateur(idUtilisateur));
         req.getRequestDispatcher("/WEB-INF/profil.jsp").forward(req, resp);
     }
 
-    /* @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Récupérer les données du formulaire de changement de mot de passe
-        String Mot_de_passe = req.getParameter("mot_de_passe");
-        String newMot_de_passe = req.getParameter("newMdp");
-        String verif = req.getParameter("verif");
-
-        if (req.getSession().getAttribute("user") == null) {
-            resp.sendRedirect(req.getContextPath() + "/");
-            return;
-        }
-        ProfilFormChecker fc = new ProfilFormChecker(req);
-        Utilisateur user = fc.checkForm();
-        if (fc.getErrors().isEmpty()) {
-            req.setAttribute("changed", "Votre mot de passe a été changé");
-        }
-        req.getRequestDispatcher("/WEB-INF/profil.jsp").forward(req, resp);
-
-}*/
 }

@@ -12,30 +12,32 @@
         <title>Inscription</title>
         <link rel="stylesheet" href="<c:url value="assets/css/form.css"/>">
         <link rel="stylesheet" href="<c:url value="assets/css/style.css"/>">
+        <link rel="shortcut icon" href="<c:url value="/assets/img/logoLivre.png"/>" type="livre"/>
+
 
 
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/header.jspf" %>
 
-        <h1>Veuillez entrer vos informations pour l'inscription</h1>
+        <h1>Entre dans la secte, misérable insecte!</h1>
         <div>${requestScope.errorMsg}</div>
 
         <form action="inscription" method="POST">
             <fieldset>
-                <legend>Informations d'inscription</legend>
+                <legend>Par ici les infos --></legend>
                 <div>
                     <label for="pseudo">Pseudo</label>
-                    <input id="pseudo" name="pseudo" type="text" value="${requestScope.bean.pseudo}">
+                    <input id="pseudo" name="pseudo" type="text" value="${requestScope.bean.pseudo}"><br>
                     <span class="error">${requestScope.errors.pseudo}</span>
                 </div>
                 <div>
-                    <label for="password">Password</label>
+                    <label for="password">Mot de passe</label>
                     <input id="mot_de_passe" name="mot_de_passe" type="password">
                     <span class="error">${requestScope.errors.mot_de_passe}</span>
                 </div>
                 <div>
-                    <label for="verif">Vérification</label>
+                    <label for="verif">Confirmation</label>
                     <input id="verif" name="verif" type="password">
                     <span class="error">${requestScope.errors.verif}</span>
                 </div>

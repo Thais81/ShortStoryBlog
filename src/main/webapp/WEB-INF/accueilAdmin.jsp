@@ -6,10 +6,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="<c:url value="/assets/CSS/style.css"/>">
+<link rel="shortcut icon" href="<c:url value="/assets/img/logoLivre.png"/>" type="livre"/>
+
 <header>
     <h1>RTL2: le meilleur de vos nouvelles</h1>
-    <h2>Bienvenu Admin</h2>
+    <h2>Bienvenue Admin</h2>
     <a href="deconnexion">Se déconnecter</a>
+
     <nav>
         <ul>
             <li><a href="<c:url value="/adminListeNouvelles"/>">Liste des nouvelles</a></li>

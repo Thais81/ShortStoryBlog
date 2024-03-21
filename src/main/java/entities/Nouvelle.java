@@ -5,6 +5,7 @@
 package entities;
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -132,6 +133,31 @@ public class Nouvelle implements Identifiable {
 
     public void setId_Utilisateur(Utilisateur id_Utilisateur) {
         this.id_Utilisateur = id_Utilisateur;
+    }
+
+    // Attribut pour stocker les votes associés à la nouvelle
+    private List<Vote> votes;
+
+    // Méthode pour obtenir les votes associés à la nouvelle
+    public List<Vote> getVotes() {
+        return votes;
+    }
+
+    // Méthode pour définir les votes associés à la nouvelle
+    public void setVotes(List<Vote> votes) {
+        this.votes = votes;
+    }
+
+    private double score; // Ajout de l'attribut score
+
+    // Getter pour le score
+    public double getScore() {
+        return score;
+    }
+
+    // Setter pour le score
+    public void setScore(double score) {
+        this.score = score;
     }
 
 }

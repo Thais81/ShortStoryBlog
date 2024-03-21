@@ -12,6 +12,8 @@
         <title>Connexion</title>
         <link rel="stylesheet" href="<c:url value="assets/css/form.css"/>">
         <link rel="stylesheet" href="<c:url value="assets/css/style.css"/>">
+        <link rel="shortcut icon" href="<c:url value="/assets/img/logoLivre.png"/>" type="livre"/>
+
 
 
     </head>
@@ -40,9 +42,7 @@
                 <input type="submit" value="Envoyer">
                 <input type="reset" value="Annuler">
             </div>
-            <div class="content">
-                <img src="assets/img/canyon.jpg" alt="canyon">
-            </div>
+
         </form>
     </body>
     <%@include file="/WEB-INF/jspf/footer.jspf" %>

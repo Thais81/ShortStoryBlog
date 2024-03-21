@@ -27,13 +27,13 @@ public class TestNouvelleDAO extends HttpServlet {
 //        System.out.println("n = " + n);
         Nouvelle nouv = new Nouvelle();
 
-////        nouv.setId_Utilisateur(DAOFactory.getUtilisateurDAO().read(2));
-////        nouv.setTitre("etetet");
-////        nouv.setDescriptif("egdoklhdfgdf");
-////        nouv.setContenu("seofjzefkzejfhserl");
-////        nouv.setDate_publication(Timestamp.from(Instant.now()));
-////        System.out.println("nouv = " + nouv);
-////        ndao.save(nouv);
+//        nouv.setId_Utilisateur(DAOFactory.getUtilisateurDAO().read(2));
+//        nouv.setTitre("etetet");
+//        nouv.setDescriptif("egdoklhdfgdf");
+//        nouv.setContenu("seofjzefkzejfhserl");
+//        nouv.setDate_publication(Timestamp.from(Instant.now()));
+//        System.out.println("nouv = " + nouv);
+//        ndao.save(nouv);
 ////        System.out.println("nouv = " + nouv);
 ////        nouv.setContenu("texte modif");
 ////        ndao.save(nouv);
