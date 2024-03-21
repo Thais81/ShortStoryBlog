@@ -37,7 +37,7 @@ public class InscriptionFormChecker extends FormChecker<Utilisateur> {
         // Vérifier les données du formulaire
 
         if (pseudo.trim().length() < MIN_LOGIN_LENGTH) {
-            setError("pseudo", "Le pseudo doit contenir un '@', doit etre une adresse mail.");
+            setError("pseudo", "Le pseudo doit contenir au minimum 5 caractères, doit etre une adresse mail.");
         } else if (!pseudo.contains("@")) {
             setError("pseudo", "Le pseudo doit contenir un '@', doit etre une adresse mail .");
         }
