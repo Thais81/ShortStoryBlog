@@ -30,12 +30,14 @@ public class CommentaireFormChecker extends FormChecker<Commentaire> {
         String contenu = request.getParameter("contenu");
         Utilisateur utilisateur = (Utilisateur) request.getSession().getAttribute("user");
 
-
+        int nouvelle = Integer.parseInt(request.getParameter("id_nouvelle"));
+        Nouvelle news = new Nouvelle();
+        news.setId_Nouvelle(nouvelle);
 
         //valeur Bean
         obj.setId_Utilisateur(utilisateur);
         obj.setDate_publication(Timestamp.valueOf(LocalDateTime.now()));
-       // obj.setId_Nouvelle(Integer.valueOf(request.getParameter()));
+        obj.setId_Nouvelle(news);
         obj.setContenu(contenu);
         // Vérifier les données du formulaire
         //Vérifier si les champs sont remplis

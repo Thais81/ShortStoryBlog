@@ -23,6 +23,8 @@ public class Nouvelle extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id_news = Integer.valueOf(req.getParameter("id"));
+        req.setAttribute("commentaires", DAOFactory.getCommentaireDAO().listById_Nouvelle(id_news));
         try {
             int id = Integer.valueOf(req.getParameter("id"));
             entities.Nouvelle nouvelle = DAOFactory.getNouvelleDAO().read(id);
@@ -37,7 +39,4 @@ public class Nouvelle extends HttpServlet {
         }
     }
 
-
-    }
-
-
+}

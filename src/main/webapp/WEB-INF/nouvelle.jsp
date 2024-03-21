@@ -26,24 +26,26 @@
             <c:if test="${sessionScope.user != null}">
 
                 <div>
-                <form action="ajoutercommentaire" method="post">
-                    <div>${requestScope.msg}</div><br>
-                    <div>${requestScope.msgerror}</div><br>
-                    <div>${requestScope.errors.contenu}</div><br>
-                    <label for="commentaire">Ajouter un commentaire :</label><br>
-                    <textarea id="contenu" name="contenu" rows="4" cols="50"></textarea><br>
-                    <input type="submit" value="Envoyer">
-                    <input type="reset" value="Annuler" onclick="history.back()">
-                </form>
-            </div>
+                    <form action="ajoutercommentaire" method="post">
+                        <input type="hidden" name="id_nouvelle" value="${nouvelle.id_Nouvelle}">
+                        <div>${requestScope.msg}</div><br>
+                        <div>${requestScope.msgerror}</div><br>
+                        <div>${requestScope.errors.contenu}</div><br>
+                        <label for="commentaire">Ajouter un commentaire :</label><br>
+                        <textarea id="contenu" name="contenu" rows="4" cols="50"></textarea><br>
+                        <input type="submit" value="Envoyer">
+                        <input type="reset" value="Annuler" onclick="history.back()">
+                    </form>
+                </div>
             </c:if>
             <h2>Liste des commentaires</h2>
-            <c:forEach var="commentaire" items="${requestScope.commentaire}">
+            <c:forEach var="commentaire" items="${requestScope.commentaires}">
+                <input type="hidden" name="id_nouvelle" value="${nouvelle.id_Nouvelle}">
                 <article>
-                            <div class="under">&Eacute;crit par ${commentaire.pseudo} le ${commentaire.date}</div>
-                            <div>${commentaire.contenu}</div>
-                        </article>
-                     </c:forEach>
+                    <div class="under">&Eacute;crit par ${commentaire.id_Utilisateur.pseudo} le ${commentaire.date_publication}</div>
+                    <div>${commentaire.contenu}</div>
+                </article>
+            </c:forEach>
 
         </main>
         <%@include file="/WEB-INF/jspf/footer.jspf" %>

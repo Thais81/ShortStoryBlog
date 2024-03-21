@@ -4,6 +4,8 @@ import entities.Commentaire;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -64,6 +66,22 @@ public class CommentaireDAO extends DAO<Commentaire> {
         } catch (SQLException ex) {
             Logger.getLogger(CommentaireDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+        public Collection<Commentaire> listById_Nouvelle(int id_Nouvelle) {
+        ArrayList<Commentaire> list = new ArrayList<>();
+        String sql = "SELECT * FROM " + table + "ORDER BY date_publication DESC LIMIT WHERE id_" + table + "=?";
+        try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
+            pstmt.setInt(1, id_Nouvelle);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Commentaire obj = createObject(rs);
+                list.add(obj);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, "Erreur lors du listage : " + ex.getMessage());
+        }
+        return list;
     }
 
   
