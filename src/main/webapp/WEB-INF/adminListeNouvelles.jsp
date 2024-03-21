@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : adminListeNouvelles
     Created on : 19 mars 2024, 10:11:05
     Author     : Jopaups
@@ -10,9 +10,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="<c:url value="assets/css/style.css"/>">
+        <link rel="shortcut icon" href="<c:url value="/assets/img/logoLivre.png"/>" type="livre"/>
+
+        <title>Nouvelles</title>
     </head>
-    <%@include file="/WEB-INF/jspf/header.jspf" %>
     <body>
         <h2>Voici la liste nouvelles :</h2>
 
@@ -21,14 +23,10 @@
                 <fieldset>
                     <legend><h3><c:out value="${nouvelle.pseudo}"/></h3></legend>
                     <div><c:out value="${nouvelle.pseudo}"/></div>
-                    <div><c:out value="Titre de la nouvelle : ${nouvelle.titre}"/></div>
-                    <div><c:out value="Descriptif de la nouvelle : ${nouvelle.desriptif}"/></div>
-                    <div><c:out value="Descriptif de la nouvelle : ${nouvelle.desriptif}"/></div>
-                    <div>Descriptif de la nouvelle : ${nouvelle.desriptif}</div><br>
-                    <div><c:out value="Mot de passe de l'utilisateur : ${person.password}"/></div>
+                    <div>Titre de la nouvelle : ${nouvelle.titre}</div><br>
+                    <div><c:out value="Mot de passe de l'utilisateur : ${utilisateur.mot_de_passe}"/></div>
                 </fieldset>
             </c:if>
         </c:forEach>
     </body>
-    <%@include file="/WEB-INF/jspf/footer.jspf" %>
 </html>

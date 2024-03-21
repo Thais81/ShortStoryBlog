@@ -148,8 +148,6 @@ public class Nouvelle implements Identifiable {
         this.votes = votes;
     }
 
-
-
     private double score; // Ajout de l'attribut score
 
     // Getter pour le score
@@ -161,6 +159,5 @@ public class Nouvelle implements Identifiable {
     public void setScore(double score) {
         this.score = score;
     }
-
 
 }

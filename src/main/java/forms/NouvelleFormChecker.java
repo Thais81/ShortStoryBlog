@@ -1,5 +1,3 @@
-
-
 package forms;
 
 import dao.DAOFactory;
@@ -54,6 +52,5 @@ public class NouvelleFormChecker extends FormChecker<Nouvelle> {
         request.setAttribute("bean", obj);
         return obj;
     }
-
 
 }

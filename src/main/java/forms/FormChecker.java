@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package forms;
 
 import java.util.HashMap;
@@ -6,8 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  *
- * @author Caroline Bergé
- * @param <T> L'entity associée au formulaire
+ * @author Amelie Solanas Pruvost
  */
 public abstract class FormChecker<T> {
 
@@ -21,17 +24,17 @@ public abstract class FormChecker<T> {
 
     public abstract T checkForm();
 
-    // public Map<String, String> getErrors();
-    // return errors.put(key, value);
     public Map<String, String> getErrors() {
         return errors;
     }
 
-    public void setError(String key, String value) {
+    protected void setError(String key, String value) {
         this.errors.put(key, value);
     }
+
     protected String getParameter(String key) {
         return request.getParameter(key)
                 == null ? "" : request.getParameter(key);
     }
+
 }

@@ -13,6 +13,8 @@
         <title>CreateArticle</title>
         <link rel="stylesheet" href="<c:url value="/assets/css/style.css" />">
         <link rel="stylesheet" href="<c:url value="/assets/css/form.css" />">
+        <link rel="shortcut icon" href="<c:url value="/assets/img/logoLivre.png"/>" type="livre"/>
+
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/header.jspf" %>
@@ -25,12 +27,12 @@
                 <fieldset>
                     <legend>Nouvelle</legend>
                     <div>
-                        <label for="titre">Titre de la nouvelle</label>
+                        <label for="titre">Balance ton titre</label>
                         <input type="text" id="titre" name="titre">
                         <div class="error">${requestScope.errors.titre}</div>
                     </div>
                     <div>
-                        <label for="descriptif">Descriptif de la nouvelle</label>
+                        <label for="descriptif">Ça parle de quoi?</label>
                         <input type="text" id="descriptif" name="descriptif">
                         <div class="error">${requestScope.errors.descriptif}</div>
                     </div>
