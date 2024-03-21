@@ -6,9 +6,10 @@
 package controllers;
 
 import dao.DAOFactory;
-
+import entities.Commentaire;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,16 +29,18 @@ public class Nouvelle extends HttpServlet {
         try {
             int id = Integer.valueOf(req.getParameter("id"));
             entities.Nouvelle nouvelle = DAOFactory.getNouvelleDAO().read(id);
+            List<Commentaire> commentaires = (List<Commentaire>) DAOFactory.getCommentaireDAO().listById_Nouvelle(id);
             if (nouvelle == null) {
                 throw new IllegalArgumentException();
             } else {
                 req.setAttribute("nouvelle", nouvelle);
+                req.setAttribute("commentaires", commentaires);
                 req.getRequestDispatcher("/WEB-INF/nouvelle.jsp").forward(req, resp);
             }
         } catch (IllegalArgumentException ex) {
             resp.sendError(404);
         }
-    }
+
     }
 
-
+}
