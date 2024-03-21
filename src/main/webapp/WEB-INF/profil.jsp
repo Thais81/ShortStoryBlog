@@ -32,12 +32,12 @@
 
                         <div class="more"><a href="<c:url value="/nouvelle?id=${nouvelle.id}"/>"> En savoir +</a></div>
 
-            </c:forEach>
+                    </c:forEach>
 
-        </fieldset>
+                    </fieldset>
 
-    </body>
-        <%@include file="/WEB-INF/jspf/footer.jspf" %>
+                    </body>
+                    <%@include file="/WEB-INF/jspf/footer.jspf" %>
 
-    </html>
+                    </html>
 

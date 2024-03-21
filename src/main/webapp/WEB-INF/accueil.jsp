@@ -15,19 +15,28 @@
                 <h2>Les dix dernières nouvelles:</h2>
                 <c:forEach var="nouvelle" items="${requestScope.nouvelles}">
                     <article>
-                        <h3><c:out value="${nouvelle.titre}"/></h3><br>
-                        <div><c:out value="${nouvelle.descriptif}"/></div><br>
+                        <h3><c:out value="${nouvelle.titre}"/></h3>
+                        <h4><c:out value="${nouvelle.descriptif}"/></h4>
+                        <div><c:out value="${nouvelle.contenu}"/></div>
 
-
-                        <div><c:out value="${nouvelle.contenu}"/></div><br>
                         <div>&Eacute;crit par <c:out value="${nouvelle.id_Utilisateur.pseudo}"/>
                             le <c:out value="${nouvelle.date_publication}"/></div>
-                        <div><a href="<c:url value="/nouvelle?id=${nouvelle.id_Nouvelle}"/>">Plus...</a></div>
+                            <div><a href="<c:url value="/nouvelle?id=${nouvelle.id_Nouvelle}"/>">Plus...</a></div>
+                            <a href="detailNouvelle.jsp?id=${nouvelle.id}"></a>
+                            <c:choose>
+                                <c:when test="${nouvelle.score == 0.0}">
+                                    Aucun vote
+                                </c:when>
+                                <c:otherwise>
+                                    (<c:out value="${nouvelle.score}"/> % de like)
+                                </c:otherwise>
+                            </c:choose>
 
 
                     </article>
-                </div>
-                    <div>
+
+
+                                    <div>
                 </main>
                 </c:forEach>
                 <%@include file="/WEB-INF/jspf/footer.jspf" %>

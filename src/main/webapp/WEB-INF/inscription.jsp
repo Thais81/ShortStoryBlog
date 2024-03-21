@@ -26,7 +26,7 @@
                 <legend>Informations d'inscription</legend>
                 <div>
                     <label for="pseudo">Pseudo</label>
-                    <input id="pseudo" name="pseudo" type="text" value="${requestScope.bean.pseudo}">
+                    <input id="pseudo" name="pseudo" type="text" value="${requestScope.bean.pseudo}"><br>
                     <span class="error">${requestScope.errors.pseudo}</span>
                 </div>
                 <div>
