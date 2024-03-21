@@ -10,6 +10,7 @@
     <h1>RTL2: le meilleur de vos nouvelles</h1>
     <h2>Bienvenu Admin</h2>
     <a href="deconnexion">Se déconnecter</a>
+
     <nav>
         <ul>
             <li><a href="<c:url value="/adminListeNouvelles"/>">Liste des nouvelles</a></li>
