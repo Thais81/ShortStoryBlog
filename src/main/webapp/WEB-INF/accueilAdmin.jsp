@@ -13,7 +13,7 @@
     <nav>
         <ul>
             <li><a href="<c:url value="/adminListeNouvelles"/>">Liste des nouvelles</a></li>
-            <li><a href="<c:url value="/adminListeIsncrits"/>">Liste des iscrits</a></li>
+            <li><a href="<c:url value="/adminListeInscrits"/>">Liste des iscrits</a></li>
             <li><a href="<c:url value="/adminListeCommentaires"/>">Liste des commentaires</a></li>
 
         </ul>

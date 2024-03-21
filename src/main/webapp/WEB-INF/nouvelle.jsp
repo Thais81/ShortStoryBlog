@@ -22,7 +22,7 @@
             <h2><c:out value="${nouvelle.descriptif}"/></h2>
 
             <div><c:out value="${nouvelle.contenu}"/></div><br>
-            <div>&Eacute;crit par <c:out value="${nouvelle.id_Utilisateur.pseudo}"/> le ${nouvelle.date_publication}</div>
+            <div>Écrit par <c:out value="${nouvelle.id_Utilisateur.pseudo}"/> le ${nouvelle.date_publication}</div>
 
             <c:if test="${sessionScope.user != null}">
                 <div>
@@ -35,9 +35,10 @@
 
             </c:if>
 
+
             <div>${param.msg}</div><br>
             <div>${requestScope.errors.contenu}</div><br>
-            
+
             <c:if test="${sessionScope.user != null}">
 
                 <div>
@@ -62,6 +63,7 @@
                     <button>signaler</button>
                 </article>
             </c:forEach>
+
 
         </main>
         <%@include file="/WEB-INF/jspf/footer.jspf" %>
