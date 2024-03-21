@@ -23,9 +23,6 @@ public class AccueilAdmin extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.setCharacterEncoding(StandardCharsets.UTF_8.toString());
-//        req.setAttribute("AdminListeNouvelles", req);
-//        req.setAttribute(name, req);
-//        req.setAttribute(name, req);
         req.getRequestDispatcher("/WEB-INF/accueilAdmin.jsp").forward(req, resp);
     }
 }

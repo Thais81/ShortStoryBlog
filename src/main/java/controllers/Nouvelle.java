@@ -7,7 +7,9 @@ package controllers;
 
 import dao.DAOFactory;
 
+
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,8 +38,6 @@ public class Nouvelle extends HttpServlet {
             resp.sendError(404);
         }
     }
-
-
     }
 
 

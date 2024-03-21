@@ -39,19 +39,15 @@ public class Connexion extends HttpServlet {
         ConnexionFormChecker fc = new ConnexionFormChecker(req);
         Utilisateur u = fc.checkForm();
         // Si erreur => affichage formulaire sinon affichage page OK
-        if (fc.getErrors().isEmpty() && u.getEstActif()) {
+        if (fc.getErrors().isEmpty()) {
             HttpSession session = req.getSession();
             session.setAttribute("user", u);
             switch (u.getId()) {
                 case 1:
-
-                    req.getRequestDispatcher("/WEB-INF/accueilAdmin.jsp")
-                            .forward(req, resp);
+                    resp.sendRedirect("/projetJEE/accueilAdmin");
                     break;
                 default:
-            resp.sendRedirect(req.getContextPath() + "/");
-            //req.getRequestDispatcher("/WEB-INF/connected.jsp")
-            // .forward(req, resp);
+                    resp.sendRedirect(req.getContextPath() + "/accueil");
             }
         } else {
 

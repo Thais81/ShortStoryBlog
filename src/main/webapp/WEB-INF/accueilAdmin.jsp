@@ -14,13 +14,11 @@
     <a href="deconnexion">Se déconnecter</a>
     <nav>
         <ul>
-            <li><a href="<c:url value="/admin/nouvelles"/>">Liste des nouvelles</a></li>
-            <li><a href="<c:url value="/adminListeIsncrits.jsp"/>">Liste des iscrits</a></li>
-            <li><a href="<c:url value="/adminListeCommentaires.jsp"/>">Liste des commentaires</a></li>
-
+            <li><a href="<c:url value="/adminNouvelles"/>">Liste des nouvelles</a></li>
+            <li><a href="<c:url value="/adminInscrits"/>">Liste des inscrits</a></li>
+                <%-- <li><a href="<c:url value="/adminListeCommentaires"/>">Liste des commentaires</a></li> --%>
         </ul>
     </nav>
-
     <%@include file="/WEB-INF/jspf/footer.jspf" %>
 </body>
 </html>

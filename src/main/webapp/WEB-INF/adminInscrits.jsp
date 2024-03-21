@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : adminListeNouvelles
     Created on : 19 mars 2024, 10:11:05
     Author     : Jopaups et Thaïs
@@ -16,25 +16,23 @@
             <ul>
                 <li><a href="<c:url value="/accueilAdmin"/>">Accueil</a></li>
                 <li><a href="<c:url value="/deconnexion"/>">Se déconnecter</a></li>
-                <li><a href="<c:url value="/adminInscrits"/>">Liste des inscrit</a></li>
+                <li><a href="<c:url value="/adminNouvelles"/>">Liste des nouvelles</a></li>
             </ul>
         </nav>
     </div>
 </header>
 <body>
-        <h2>Voici la liste nouvelles :</h2>
+    <h2>Voici la liste utilisateurs :</h2>
 
-        <c:forEach var="nouvelle" items="${requestScope.nouvelles}">
-            <c:if test="${utilisateur.id_Utilisateur !=1}">
-                <fieldset>
-                    <legend><h3><c:out value="${nouvelle.id_Utilisateur.pseudo}"/></h3></legend>
-                    <div><c:out value="${nouvelle.titre}"/></div>
-                    <div><c:out value="${nouvelle.descriptif}"/></div>
-                    <div><c:out value="${nouvelle.contenu}"/></div>
-                    <button>supprimer nouvelle</button>
-                </fieldset>
-            </c:if>
-        </c:forEach>
-    </body>
-    <%@include file="/WEB-INF/jspf/footer.jspf" %>
+    <c:forEach var="user" items="${requestScope.users}">
+        <c:if test="${utilisateur.id_Utilisateur !=1}">
+            <fieldset>
+                <legend><h3><c:out value="${user.pseudo}"/></h3></legend>
+                <button>supprimer utilisateur</button>
+                <button>désactiver/réactiver utlisateur</button>
+            </fieldset>
+        </c:if>
+    </c:forEach>
+</body>
+<%@include file="/WEB-INF/jspf/footer.jspf" %>
 </html>

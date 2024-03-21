@@ -27,6 +27,10 @@ public class SupprimerMonCompte extends HttpServlet {
         try {
             int id = Integer.valueOf(req.getParameter("id"));
             DAOFactory.getUtilisateurDAO().delete(id);
+
+            // Supprimer les informations de session de l'utilisateur
+            req.getSession().invalidate();
+
             resp.sendRedirect(req.getContextPath() + "/accueil");
         } catch (NumberFormatException ex) {
             resp.sendError(403);
@@ -34,4 +38,3 @@ public class SupprimerMonCompte extends HttpServlet {
     }
 
 }
-
