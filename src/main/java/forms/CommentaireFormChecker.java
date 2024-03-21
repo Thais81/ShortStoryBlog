@@ -42,8 +42,7 @@ public class CommentaireFormChecker extends FormChecker<Commentaire> {
         // Vérifier les données du formulaire
         //Vérifier si les champs sont remplis
         if (contenu == null || contenu.trim().length() == 0) {
-            setError("contenu", "ce champ doit être rempli.");
-        } else {
+            setError("contenu", "Ce champ doit être rempli.");
         }
 
         if (errors.isEmpty()) {
