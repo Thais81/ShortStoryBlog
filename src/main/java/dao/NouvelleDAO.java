@@ -143,4 +143,3 @@ public class NouvelleDAO extends DAO<Nouvelle> {
         return nouvelles;
     }
 }
-

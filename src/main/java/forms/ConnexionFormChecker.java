@@ -6,7 +6,6 @@ package forms;
 
 import Helpers.PasswordAuthentication;
 import dao.DAOFactory;
-import dao.UtilisateurDAO;
 import entities.Utilisateur;
 import javax.servlet.http.HttpServletRequest;
 

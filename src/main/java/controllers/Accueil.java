@@ -30,7 +30,7 @@ public class Accueil extends HttpServlet {
             laNouvelle.setScore(score);
             nouvellesAvecScore.add(laNouvelle);
         }
-        req.setAttribute("nouvelles", DAOFactory.getNouvelleDAO().listLastN(10));
+        //req.setAttribute("nouvelles", DAOFactory.getNouvelleDAO().listLastN(10));
         req.setAttribute("nouvelles", nouvellesAvecScore);
         req.getRequestDispatcher("/WEB-INF/accueil.jsp").forward(req, resp);
     }

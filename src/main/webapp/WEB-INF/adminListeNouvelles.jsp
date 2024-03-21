@@ -25,15 +25,13 @@
         <h2>Voici la liste nouvelles :</h2>
 
         <c:forEach var="nouvelle" items="${requestScope.nouvelles}">
-            <c:if test="${utilisateur.id_Utilisateur !=1}">
-                <fieldset>
+            <fieldset>
                     <legend><h3><c:out value="${nouvelle.id_Utilisateur.pseudo}"/></h3></legend>
                     <div><c:out value="${nouvelle.titre}"/></div>
                     <div><c:out value="${nouvelle.descriptif}"/></div>
                     <div><c:out value="${nouvelle.contenu}"/></div>
                     <button>supprimer nouvelle</button>
                 </fieldset>
-            </c:if>
         </c:forEach>
     </body>
     <%@include file="/WEB-INF/jspf/footer.jspf" %>

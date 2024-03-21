@@ -32,7 +32,6 @@ public class CreerNouvelle extends HttpServlet {
         fc.checkForm();
         if (fc.getErrors().isEmpty()) {
             req.setAttribute("message", "Votre nouvelle est bien enregistrée");
-//            resp.sendRedirect(req.getContextPath() + "/");
             req.getRequestDispatcher("/WEB-INF/creerNouvelle.jsp").forward(req, resp);
         } else {
             req.setAttribute("errorMsg", "Votre formulaire comporte des erreurs.");

@@ -25,7 +25,7 @@
     <h2>Voici la liste utilisateurs :</h2>
 
     <c:forEach var="user" items="${requestScope.users}">
-        <c:if test="${utilisateur.id_Utilisateur !=1}">
+        <c:if test="${user.id !=1}">
             <fieldset>
                 <legend><h3><c:out value="${user.pseudo}"/></h3></legend>
                 <button>supprimer utilisateur</button>

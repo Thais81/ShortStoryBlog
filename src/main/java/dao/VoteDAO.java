@@ -132,4 +132,5 @@ public class VoteDAO extends DAO<Vote> {
 
     }
 
+
 }    
