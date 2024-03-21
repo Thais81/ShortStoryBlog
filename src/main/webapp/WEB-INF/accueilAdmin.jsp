@@ -7,15 +7,16 @@
 <%@ page pageEncoding="UTF-8" %>
 <link rel="stylesheet" href="<c:url value="/assets/css/style.css"/>">
 <link rel="stylesheet" href="<c:url value="/assets/css/admin.css"/>">
+<link rel="stylesheet" href="<c:url value="/assets/css/accueilAdmin.css"/>">
 <header>
     <h1>RTL2: le meilleur de vos nouvelles</h1>
     <h2>Bienvenu Admin</h2>
     <a href="deconnexion">Se déconnecter</a>
     <nav>
         <ul>
-            <li><a href="<c:url value="/adminListeNouvelles"/>">Liste des nouvelles</a></li>
-            <li><a href="<c:url value="/adminListeIsncrits"/>">Liste des iscrits</a></li>
-            <li><a href="<c:url value="/adminListeCommentaires"/>">Liste des commentaires</a></li>
+            <li><a href="<c:url value="/admin/nouvelles"/>">Liste des nouvelles</a></li>
+            <li><a href="<c:url value="/adminListeIsncrits.jsp"/>">Liste des iscrits</a></li>
+            <li><a href="<c:url value="/adminListeCommentaires.jsp"/>">Liste des commentaires</a></li>
 
         </ul>
     </nav>
