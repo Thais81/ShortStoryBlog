@@ -13,9 +13,14 @@
     <body>
         <%@include file="/WEB-INF/jspf/header.jspf" %>
         <main>
-            <h1 class="titre">BIENVENUE SUR LE BLOG</h1>
+            <div class="rock">
+                <img src="<c:url value="/assets/img/rock.png"/>" width="70px" height="100px">
+                <h1 class="titre">LE BLOG DES HISTOIRES POP-ROCK</h1>
+                <img src="<c:url value="/assets/img/rock.png"/>" width="70px" height="100px">
+            </div>
 
-            <h2>Les dix dernières nouvelles:</h2>
+
+            <h2>Les dix dernières nouvelles à la une:</h2>
             <c:forEach var="nouvelle" items="${requestScope.nouvelles}">
                 <fieldset>
                     <legend> <h3><c:out value="${nouvelle.titre}"/></h3></legend>

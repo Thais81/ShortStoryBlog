@@ -17,14 +17,15 @@
 
     </head>
     <body>
-        <h1>Que voulez-vous faire?</h1>
+
         <%@include file="/WEB-INF/jspf/header.jspf" %>
+        <h1 class="titre">Que voulez-vous faire?</h1>
         <section>
             <div class="ok">${requestScope.change}</div>
-            <h3>Changer de mot de passe</h3>
+
             <form action="<c:url value="/profil/options" />" method="post">
                 <fieldset>
-                    <legend>Modifications</legend>
+                    <legend>Changer de mot de passe</legend>
                     <div>
                         <label for="mdp">Mot de passe actuel</label>
                         <input type="password" id="mdp" name="mdp">
@@ -36,7 +37,7 @@
                         <div class="error">${requestScope.errors.next}</div>
                     </div>
                     <div>
-                        <label for="verif">Vérification</label>
+                        <label for="verif">Confirmation</label>
                         <input type="password" id="verif" name="verif">
                         <div class="error">${requestScope.errors.verif}</div>
                     </div>
@@ -46,9 +47,14 @@
                     <input type="reset" value="Annuler">
                 </div>
             </form>
+            <fieldset>
+                <legend>Bye Bye!</legend>
+                <form class='byebye'>
+                    <div> Veux-tu vraiment nous quitter? </div>
+                    <div><a> <input type="submit" value='Oui je le veux' href="<c:url value="/profil/suppcompte?id=${sessionScope.user.id}"/>"></a></div>
+                </form>
+            </fieldset>
 
-            <h3>Voulez-vous vraiment supprimer votre compte?</h3>
-            <a href="<c:url value="/profil/suppcompte?id=${sessionScope.user.id}"/>">Oui je le veux</a>
         </section>
         <%@include file="/WEB-INF/jspf/footer.jspf" %>
     </body>
