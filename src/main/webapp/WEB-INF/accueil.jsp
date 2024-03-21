@@ -19,9 +19,6 @@
                 <h1 class="titre">LE BLOG DES HISTOIRES POP-ROCK</h1>
                 <img src="<c:url value="/assets/img/rock.png"/>" width="70px" height="100px">
             </div>
-
-
-
             <div>
                 <h2>Les dix dernières nouvelles:</h2>
                 <c:forEach var="nouvelle" items="${requestScope.nouvelles}">
