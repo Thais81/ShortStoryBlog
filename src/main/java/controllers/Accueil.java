@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/accueil")
 public class Accueil extends HttpServlet {
 
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding(StandardCharsets.UTF_8.toString());
