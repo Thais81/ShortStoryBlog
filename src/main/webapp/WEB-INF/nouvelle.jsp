@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : nouvelle
     Created on : 19 mars 2024, 13:21:41
     Author     : kevinh
@@ -12,6 +12,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Nouvelle</title>
         <link rel="stylesheet" href="<c:url value="/assets/css/style.css" />">
+        <link rel="shortcut icon" href="<c:url value="/assets/img/logoLivre.png"/>" type="livre"/>
+
     </head>
 
     <body>
@@ -19,32 +21,53 @@
         <main>
 
             <h1><c:out value="${nouvelle.titre}"/></h1>
-            <div class="under">&Eacute;crit par <c:out value="${sessionScope.user.pseudo}}"/> le ${nouvelle.date_publication}</div>
-            <div><c:out value="${nouvelle.contenu}"/></div>
+            <h2><c:out value="${nouvelle.descriptif}"/></h2>
+
+            <div><c:out value="${nouvelle.contenu}"/></div><br>
+            <div>Écrit par <c:out value="${nouvelle.id_Utilisateur.pseudo}"/> le ${nouvelle.date_publication}</div>
 
             <c:if test="${sessionScope.user != null}">
-
                 <div>
-                <form action="nouvelle.jsp" method="post">
-                    <label for="commentaire">Commentaire :</label><br>
-                    <div class="error">${requestScope.errors.contenu}</div>
-                    <textarea id="contenu" name="contenu" rows="4" cols="50"></textarea><br>
-                    <input type="submit" value="Envoyer">
-                    <input type="reset" value="Annuler" onclick="history.back()">
-                </form>
-            </div>
+                    <form action="vote" method="post">
+                        <input type="hidden" name="id_Nouvelle" value="${nouvelle.id}">
+                        <button type="submit" name="qualite" value="positif">Pouce en l'air</button>
+                        <button type="submit" name="qualite" value="negatif">Pouce en bas</button>
+                    </form>
+                </div>
+
             </c:if>
+
+
+            <div>${param.msg}</div><br>
+            <div>${requestScope.errors.contenu}</div><br>
+
+            <c:if test="${sessionScope.user != null}">
+                <div>
+                    <form action="<c:url value="/nouvelle?id=${requestScope.nouvelle.id_Nouvelle}"/>" method="post">
+                        <input type="hidden" name="id_nouvelle" value="${nouvelle.id_Nouvelle}">
+                        <label for="commentaire">Ajouter un commentaire :</label><br>
+                        <textarea id="contenu" name="contenu" rows="4" cols="50"></textarea><br>
+                        <input type="submit" value="Envoyer">
+                        <input type="reset" value="Annuler" onclick="history.back()">
+                    </form>
+                </div>
+
+            </c:if>
+
+
             <h2>Liste des commentaires</h2>
-            <c:forEach var="commentaire" items="${requestScope.commentaire}">
+            <c:forEach var="commentaire" items="${requestScope.commentaires}">
+                <input type="hidden" name="id_nouvelle" value="${nouvelle.id_Nouvelle}">
                 <article>
-                            <div class="under">&Eacute;crit par ${commentaire.pseudo} le ${commentaire.date}</div>
-                            <div>${commentaire.contenu}</div>
-                        </article>
-                     </c:forEach>
+                    <div class="under">&Eacute;crit par ${commentaire.id_Utilisateur.pseudo} le ${commentaire.date_publication}</div>
+                    <div>${commentaire.contenu}</div>
+                    <button>signaler</button>
+                </article>
+            </c:forEach>
+
 
         </main>
         <%@include file="/WEB-INF/jspf/footer.jspf" %>
     </body>
 
 </html>
-

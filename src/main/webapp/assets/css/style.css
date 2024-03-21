@@ -13,8 +13,7 @@
 
 
 :root {
-    background: linear-gradient(135deg, darkseagreen, palegreen);
-
+    background: linear-gradient(100deg, palegreen, seagreen);
 }
 
 body {
@@ -22,8 +21,10 @@ body {
 }
 
 header, footer {
-    background-color: azure;
+    background-color: lavender;
     font-family: stopbuck;
+
+
 }
 
 header {
@@ -31,9 +32,13 @@ header {
     justify-content: space-between;
     text-align: center;
 }
+footer{
+    margin-top: 10px;
+}
 .titre{
     font-family: mystic;
-    font-size: 70px;
+    font-size: 60px;
+    color: darkmagenta;
 }
 
 legend, h4{
@@ -69,6 +74,26 @@ nav > ul > li > a:visited {
     margin-bottom: 0.5em;
 }
 h2{
+    font-family: remora;
+    font-size: 25px;
+}
+.rock{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.avis{
+    margin-top: 20px;
     font-family: mystic;
-    font-size: 40px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.byebye{
+    font-family: remora;
+    margin: 1em;
+    display: block;
+    justify-content: center;
+    width: 50%;
+
 }
