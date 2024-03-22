@@ -12,18 +12,33 @@
         <h1><em>RTL2: le blog des nouvelles</em></h1>
         <nav>
             <ul>
-                <li><a href="<c:url value="/accueil"/>">Accueil</a></li>
-                <c:if test="${empty sessionScope.user}">
-                    <li><a href="<c:url value="/connexion"/>">Se connecter</a></li>
-                    <li><a href="<c:url value="/inscription"/>">S'inscrire</a></li>
-                </c:if>
-                        <c:if test="${!empty sessionScope.user}">
-
-                        <li><a href="<c:url value="/deconnexion"/>">Se déconnecter</a></li>
-                        <li><a href="<c:url value="/profil"/>">Profil</a></li>
-                        <li><a href="<c:url value="/profil/creer_nouvelle"/>">Créer Nouvelle</a></li>
-                        <li><a href="<c:url value="/profil/options"/>">Options</a></li>
-                    </c:if>
+                <c:choose>
+                    <c:when test="${empty sessionScope.user}">
+                        <li><a href="<c:url value='/connexion'/>">Se connecter</a></li>
+                        <li><a href="<c:url value='/inscription'/>">S'inscrire</a></li>
+                        </c:when>
+                            <c:when test="${!empty sessionScope.user and sessionScope.user.id ne 1}">
+                            <li><a href="<c:url value='/accueil'/>">Accueil</a></li>
+                        <li><a href="<c:url value='/profil'/>">Profil</a></li>
+                        <li><a href="<c:url value='/profil/creer_nouvelle'/>">Créer Nouvelle</a></li>
+                        <li><a href="<c:url value='/profil/options'/>">Options</a></li>
+                            <c:choose>
+                                <c:when test="${sessionScope.user.id == 1 and requestScope.requestURI eq '/accueilAdmin'}">
+                                <li><a href="<c:url value='/adminNouvelles'/>">Liste des nouvelles</a></li>
+                                <li><a href="<c:url value='/adminInscrits'/>">Liste des inscrits</a></li>
+                                </c:when>
+                                    <c:when test="${sessionScope.user.id == 1 and requestScope.requestURI eq '/WEB-INF/adminInscrits'}">
+                                    <li><a href="<c:url value='/adminNouvelles'/>">Liste des nouvelles</a></li>
+                                <li><a href="<c:url value='/accueilAdmin'/>">Accueil</a></li>
+                                </c:when>
+                                    <c:when test="${sessionScope.user.id == 1 and requestScope.requestURI eq '/WEB-INF/adminNouvelles'}">
+                                    <li><a href="<c:url value='/adminInscrits'/>">Liste des inscrits</a></li>
+                                <li><a href="<c:url value='/accueilAdmin'/>">Accueil</a></li>
+                                </c:when>
+                            </c:choose>
+                        <li><a href="<c:url value='/deconnexion'/>">Se déconnecter</a></li>
+                        </c:when>
+                    </c:choose>
             </ul>
         </nav>
         <div>

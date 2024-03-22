@@ -9,8 +9,9 @@
 <link rel="stylesheet" href="<c:url value="/assets/css/style.css"/>">
 <link rel="stylesheet" href="<c:url value="/assets/css/admin.css"/>">
 <link rel="stylesheet" href="<c:url value="/assets/css/accueilAdmin.css"/>">
-<header>
-    <div>
+<%@include file="/WEB-INF/jspf/header.jspf" %>
+<%--<header>
+ <div>
         <h1><em>RTL2: le blog des nouvelles</em></h1>
         <nav>
             <ul>
@@ -20,7 +21,7 @@
             </ul>
         </nav>
     </div>
-</header>
+</header>--%>
 <body>
         <h2>Voici la liste nouvelles :</h2>
 
