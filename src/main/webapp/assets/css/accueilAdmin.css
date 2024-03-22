@@ -1,0 +1,23 @@
+nav {
+    text-align: center; /* Align content in the middle of the page */
+}
+
+nav {
+    width: 100%; /* Occupy entire width of the middle area */
+}
+
+nav ul {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+}
+
+nav ul li {
+    display: inline-block; /* Display list items horizontally */
+    margin: 0 10px; /* Adjust spacing between list items */
+}
+
+nav ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Change link color */
+    /* Additional styling as needed */
+}

@@ -33,7 +33,10 @@ header {
     text-align: center;
 }
 footer{
-    margin-top: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 .titre{
     font-family: mystic;
@@ -41,10 +44,14 @@ footer{
     color: darkmagenta;
 }
 
-legend, h4{
+legend{
     font-family: remora;
+    font-size: 30px;
 }
-
+h4{
+    font-family: remora;
+    font-size: 15px;
+}
 .right {
     align-self: center;
     margin: 1em;
@@ -95,5 +102,13 @@ h2{
     display: block;
     justify-content: center;
     width: 50%;
-
 }
+
+.article{
+    background: linear-gradient(100deg, seagreen, palegreen);
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+

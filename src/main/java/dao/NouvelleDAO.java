@@ -37,7 +37,7 @@ public class NouvelleDAO extends DAO<Nouvelle> {
     @Override
     public void create(Nouvelle nouv) {
         String sql = "INSERT INTO " + table + " (titre, descriptif, contenu, date_publication,id_Utilisateur) VALUES (?, ?, ?, ?, ?)";
-        try ( PreparedStatement pstmt = connexion.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement pstmt = connexion.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, nouv.getTitre());
             pstmt.setString(2, nouv.getDescriptif());
             pstmt.setString(3, nouv.getContenu());
@@ -60,7 +60,7 @@ public class NouvelleDAO extends DAO<Nouvelle> {
         String sql = "UPDATE " + table
                 + "titre=?," + "contenu=?," + "date_publication=?,"
                 + "descriptif=?, WHERE id_" + table + "=?";
-        try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
+        try (PreparedStatement pstmt = connexion.prepareStatement(sql)) {
 
             pstmt.setString(1, nouv.getTitre());
             pstmt.setString(2, nouv.getContenu());
@@ -90,10 +90,9 @@ public class NouvelleDAO extends DAO<Nouvelle> {
         return list;
 
     }
-
     public Collection<Nouvelle> listNouvellesUtilisateur(int idUtilisateur) {
         ArrayList<Nouvelle> list = new ArrayList<>();
-        String sql = "SELECT * FROM " + table + " WHERE id_Utilisateur=?";
+        String sql = "SELECT * FROM " + table + " WHERE id_Utilisateur=? ORDER BY date_publication DESC";
         try ( PreparedStatement pstmt = connexion.prepareStatement(sql)) {
             pstmt.setInt(1, idUtilisateur);
             ResultSet rs = pstmt.executeQuery();
@@ -158,4 +157,7 @@ public class NouvelleDAO extends DAO<Nouvelle> {
 //            System.err.println("Erreur lors du listage : " + ex.getMessage());
 //        }
 //        return list;
-}
+
+    }
+
+
