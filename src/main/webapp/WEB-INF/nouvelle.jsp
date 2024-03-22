@@ -63,8 +63,8 @@
                 <c:forEach var="commentaire" items="${requestScope.commentaires}">
                     <input type="hidden" name="id_nouvelle" value="${nouvelle.id_Nouvelle}">
                     <article>
-                        <div class="under">Écrit par ${commentaire.id_Utilisateur.pseudo} le ${commentaire.date_publication}</div>
-                        <div>${commentaire.contenu}</div>
+                        <div class="under">Écrit par ${commentaire.id_Utilisateur.pseudo} le ${commentaire.date_publication}</div><br>
+                        <div>${commentaire.contenu}</div><br>
                         <button>signaler</button>
                     </article>
                 </c:forEach>

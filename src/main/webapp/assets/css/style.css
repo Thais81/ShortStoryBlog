@@ -11,7 +11,6 @@
     src: url(KelanoRemora.otf)
 }
 
-
 :root {
     background: linear-gradient(100deg, palegreen, seagreen);
 }
@@ -23,8 +22,6 @@ body {
 header, footer {
     background-color: lavender;
     font-family: stopbuck;
-
-
 }
 
 header {

@@ -34,9 +34,9 @@
     <c:forEach var="nouvelle" items="${requestScope.nouvelles}">
         <fieldset>
             <legend><h3><c:out value="${nouvelle.id_Utilisateur.pseudo}"/></h3></legend>
-            <div><c:out value="${nouvelle.titre}"/></div>
-            <div><c:out value="${nouvelle.descriptif}"/></div>
-            <div><c:out value="${nouvelle.contenu}"/></div>
+            <div><c:out value="${nouvelle.titre}"/></div><br>
+            <div><c:out value="${nouvelle.descriptif}"/></div><br>
+            <div><c:out value="${nouvelle.contenu}"/></div><br>
             <button>supprimer nouvelle</button>
         </fieldset>
     </c:forEach>

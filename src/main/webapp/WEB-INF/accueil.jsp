@@ -30,8 +30,8 @@
                         <div><c:out value="${nouvelle.contenu}"/></div>
 
                         <div>Écrit par <c:out value="${nouvelle.id_Utilisateur.pseudo}"/>
-                            le <c:out value="${nouvelle.date_publication}"/></div>
-                        <div><a href="<c:url value="/nouvelle?id=${nouvelle.id_Nouvelle}"/>">Plus...</a></div>
+                            le <c:out value="${nouvelle.date_publication}"/></div><br>
+                        <div><a href="<c:url value="/nouvelle?id=${nouvelle.id_Nouvelle}"/>">Plus...</a></div><br>
                         <a href="detailNouvelle.jsp?id=${nouvelle.id}"></a>
                         <c:choose>
                             <c:when test="${nouvelle.score == 0.0}">
