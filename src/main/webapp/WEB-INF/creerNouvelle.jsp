@@ -19,8 +19,8 @@
         <main>
 
 
-            <form action="<c:url value="/profil/creer_nouvelle"/>" method="post">
-                <div>${requestScope.message} </div>
+            <form action="<c:url value="/profil/creer_nouvelle" />" method="post">
+                <div class="ok">${requestScope.message} </div>
                 <div class="error"> ${requestScope.errorMsg}</div>
                 <fieldset>
                     <legend>Nouvelle</legend>
@@ -35,8 +35,8 @@
                         <div class="error">${requestScope.errors.descriptif}</div>
                     </div>
                     <div>
-                        <label for="contenu">Contenu de la nouvelle</label>
-                        <textarea id="contenu" name="contenu" rows="15" cols="25"></textarea>
+                        <label for="contenu">Contenu de la nouvelle</label><br>
+                        <textarea id="contenu" name="contenu" rows="15" cols="65"></textarea>
                         <div class="error">${requestScope.errors.contenu}</div>
 
                     </div>

@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="<c:url value="/assets/css/style.css"/>">
         <link rel="stylesheet" href="<c:url value="/assets/css/form.css"/>">
         <link rel="shortcut icon" href="<c:url value="/assets/img/logoLivre.png"/>" type="livre"/>
-
     </head>
     <body>
         <%@include file="/WEB-INF/jspf/header.jspf" %>
@@ -23,16 +22,16 @@
 
 
             <div>
-                <h2>Les dix dernières nouvelles:</h2>
+                <h2>Les dix dernières nouvelles à la une:</h2>
                 <c:forEach var="nouvelle" items="${requestScope.nouvelles}">
-                    <article>
+                    <article class="article">
                         <h3><c:out value="${nouvelle.titre}"/></h3>
                         <h4><c:out value="${nouvelle.descriptif}"/></h4>
                         <div><c:out value="${nouvelle.contenu}"/></div>
 
-                        <div>&Eacute;crit par <c:out value="${nouvelle.id_Utilisateur.pseudo}"/>
-                            le <c:out value="${nouvelle.date_publication}"/></div>
-                        <div><a href="<c:url value="/nouvelle?id=${nouvelle.id_Nouvelle}"/>">Plus...</a></div>
+                        <div>Écrit par <c:out value="${nouvelle.id_Utilisateur.pseudo}"/>
+                            le <c:out value="${nouvelle.date_publication}"/></div><br>
+                        <div><a href="<c:url value="/nouvelle?id=${nouvelle.id_Nouvelle}"/>">Plus...</a></div><br>
                         <a href="detailNouvelle.jsp?id=${nouvelle.id}"></a>
                         <c:choose>
                             <c:when test="${nouvelle.score == 0.0}">

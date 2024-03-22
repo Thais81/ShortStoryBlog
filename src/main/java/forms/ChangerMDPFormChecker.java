@@ -4,6 +4,7 @@
  */
 package forms;
 
+import Helpers.PasswordAuthentication;
 import dao.DAOFactory;
 import entities.Utilisateur;
 import javax.servlet.http.HttpServletRequest;
@@ -41,7 +42,14 @@ public class ChangerMDPFormChecker extends FormChecker<Utilisateur> {
             setError(VERIF_FIELD, "Les mots de passe ne sont pas identiques!");
         }
         if (errors.isEmpty()) {
-            user.setMot_de_passe(nouv_mdp);
+            // Hasher le nouveau mot de passe
+            PasswordAuthentication pa = new PasswordAuthentication();
+            String hashedPassword = pa.hash(nouv_mdp.toCharArray());
+
+            // Mettre à jour le mot de passe dans l'objet utilisateur
+            user.setMot_de_passe(hashedPassword);
+
+            // Mettre à jour le mot de passe dans la base de données
             DAOFactory.getUtilisateurDAO().save(user);
         }
         request.setAttribute("errors", errors);

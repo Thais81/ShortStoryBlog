@@ -1,6 +1,5 @@
 package controllers;
 
-
 import entities.Commentaire;
 import forms.CommentaireFormChecker;
 import java.io.IOException;
@@ -19,6 +18,7 @@ public class AjouterCommentaire extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/WEB-INF/nouvelle.jsp").forward(req, resp);
         if (req.getSession().getAttribute("utilisateur") != null) {
             req.getRequestDispatcher("/WEB-INF/nouvelle.jsp").forward(req, resp);
         } else {
@@ -28,6 +28,7 @@ public class AjouterCommentaire extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.sendRedirect(req.getContextPath() + "/");
         CommentaireFormChecker cfc = new CommentaireFormChecker(req);
         Commentaire com = cfc.checkForm();
         if (cfc.getErrors().isEmpty()) {

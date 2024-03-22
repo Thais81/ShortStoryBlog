@@ -18,8 +18,8 @@ public class NouvelleFormChecker extends FormChecker<Nouvelle> {
     private final String TITLE_FIELD = "titre";
     private final String DESCRIPTIF_FIELD = "descriptif";
     private final String CONTENT_FIELD = "contenu";
-//    private final int MIN_TITLE_LENGTH = 5;
-//    private final int MIN_CONTENT_LENGTH = 10;
+    private final int MIN_TITLE_LENGTH = 5;
+    private final int MIN_CONTENT_LENGTH = 10;
 
     public NouvelleFormChecker(HttpServletRequest request) {
         super(request);
@@ -39,14 +39,15 @@ public class NouvelleFormChecker extends FormChecker<Nouvelle> {
         obj.setTitre(titre);
         obj.setDescriptif(descriptif);
         obj.setDate_publication(Timestamp.valueOf(LocalDateTime.now()));
-//        if (titre.trim().length() < MIN_TITLE_LENGTH) {
-//            setError(TITLE_FIELD, "Ce champs doit faire au moins" + MIN_CONTENT_LENGTH + "lettres.");
-//
-//        }
-//        if (titre.trim().length() < MIN_CONTENT_LENGTH) {
-//            setError(CONTENT_FIELD, "Ce champs doit faire au moins" + MIN_CONTENT_LENGTH + "lettres.");
-//
-//        }
+        if (titre.trim().length() < MIN_TITLE_LENGTH) {
+            setError(TITLE_FIELD, "Ce champ doit faire au moins " + MIN_CONTENT_LENGTH + " lettres.");
+        }
+        if (descriptif.trim().length() < MIN_TITLE_LENGTH) {
+            setError(DESCRIPTIF_FIELD, "Ce champ doit faire au moins " + MIN_CONTENT_LENGTH + " lettres.");
+        }
+        if (contenu.trim().length() < MIN_CONTENT_LENGTH) {
+            setError(CONTENT_FIELD, "Ce champ doit faire au moins " + MIN_CONTENT_LENGTH + " lettres.");
+        }
         if (errors.isEmpty()) {
             DAOFactory.getNouvelleDAO().save(obj);
         }

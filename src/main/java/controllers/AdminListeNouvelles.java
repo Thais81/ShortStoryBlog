@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Jopaups
  */
 @WebServlet("/adminNouvelles")
-public class AdminListeNouvelles extends HttpServlet{
+public class AdminListeNouvelles extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

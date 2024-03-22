@@ -17,7 +17,7 @@ public class AdminInscrits extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("users", DAOFactory.getUtilisateurDAO().list());
+        req.setAttribute("user", DAOFactory.getUtilisateurDAO().list());
         req.getRequestDispatcher("WEB-INF/adminInscrits.jsp").forward(req, resp);
     }
 

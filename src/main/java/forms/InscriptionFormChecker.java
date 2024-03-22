@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author Caroline Bergé
  */
-
 public class InscriptionFormChecker extends FormChecker<Utilisateur> {
-    private final int MIN_PWD_LENGTH = 5;
-    private final int MIN_LOGIN_LENGTH = 12;
+
+    private final int MIN_MDP_LENGTH = 12;
+    private final int MIN_PSEUDO_LENGTH = 12;
 
     public InscriptionFormChecker(HttpServletRequest request) {
         super(request);
@@ -36,13 +36,13 @@ public class InscriptionFormChecker extends FormChecker<Utilisateur> {
         obj.setEstActif(true);
         // Vérifier les données du formulaire
 
-        if (pseudo.trim().length() < MIN_LOGIN_LENGTH) {
+        if (pseudo.trim().length() < MIN_PSEUDO_LENGTH) {
             setError("pseudo", "Le pseudo doit contenir au minimum 5 caractères avant '@'.");
         } else if (!pseudo.contains("@")) {
             setError("pseudo", "Le pseudo doit contenir un '@', doit etre une adresse mail .");
         }
 
-        if (mot_de_passe.length() < MIN_PWD_LENGTH) {
+        if (mot_de_passe.length() < MIN_MDP_LENGTH) {
             setError("mot_de_passe", "ce champ doit etre rempli, doit contenir au minimum 12 caractères.");
         }
 

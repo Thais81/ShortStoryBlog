@@ -31,7 +31,7 @@ public class Nouvelle extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            id = Integer.valueOf(req.getParameter("id"));
+            int id = Integer.valueOf(req.getParameter("id"));
             entities.Nouvelle nouvelle = DAOFactory.getNouvelleDAO().read(id);
             List<Commentaire> commentaires = (List<Commentaire>) DAOFactory.getCommentaireDAO().listById_Nouvelle(id);
             if (nouvelle == null) {
