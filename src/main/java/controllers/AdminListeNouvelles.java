@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Jopaups
  */
-@WebServlet("/admin/nouvelles")
+@WebServlet("/adminNouvelles")
 public class AdminListeNouvelles extends HttpServlet {
 
     @Override

@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Amelie Solanas Pruvost
  */
 @WebServlet("/admin/commentaires")
-public class AdminCommentaires extends HttpServlet {
+public class AdminListeCommentaires extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

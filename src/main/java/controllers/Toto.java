@@ -4,7 +4,9 @@
  */
 package controllers;
 
-import dao.DAOFactory;
+import Helpers.PasswordAuthentication;
+import dao.UtilisateurDAO;
+import entities.Utilisateur;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,15 +16,17 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Amelie Solanas Pruvost
+ * @author Caroline Bergé
  */
-@WebServlet("/adminInscrits")
-public class AdminInscrits extends HttpServlet {
+@WebServlet("/toto")
+public class Toto extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("user", DAOFactory.getUtilisateurDAO().list());
-        req.getRequestDispatcher("WEB-INF/adminInscrits.jsp").forward(req, resp);
+        PasswordAuthentication pa = new PasswordAuthentication();
+        for (Utilisateur u : new UtilisateurDAO().list()) {
+            System.out.println("utilisateur : " + u.getPseudo() + " // mot de passe : " + pa.hash(u.getMot_de_passe().toCharArray()));
+        }
     }
 
 }

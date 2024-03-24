@@ -4,8 +4,8 @@
  */
 package controllers;
 
-import dao.DAOFactory;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,15 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Amelie Solanas Pruvost
+ * @author Thaïs GENIN
  */
-@WebServlet("/adminInscrits")
-public class AdminInscrits extends HttpServlet {
+@WebServlet("/accueilAdmin")
+public class AccueilAdmin extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("user", DAOFactory.getUtilisateurDAO().list());
-        req.getRequestDispatcher("WEB-INF/adminInscrits.jsp").forward(req, resp);
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        req.setCharacterEncoding(StandardCharsets.UTF_8.toString());
+        req.getRequestDispatcher("/WEB-INF/accueilAdmin.jsp").forward(req, resp);
     }
-
 }
