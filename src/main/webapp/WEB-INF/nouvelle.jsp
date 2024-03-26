@@ -42,10 +42,7 @@
             <div>${requestScope.errors.contenu}</div><br>
 
             <c:if test="${sessionScope.user != null}">
-                <form action="nouvelle.jsp" method="post">
-
-                    <div class="error">${requestScope.errors.contenu}</div>
-
+                <div class="error">${requestScope.errors.contenu}</div>
                     <div>
                         <form action="<c:url value="/nouvelle?id=${requestScope.nouvelle.id_Nouvelle}"/>" method="post">
                             <input type="hidden" name="id_nouvelle" value="${nouvelle.id_Nouvelle}">
